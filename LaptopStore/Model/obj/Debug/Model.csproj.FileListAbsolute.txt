@@ -1,0 +1,11 @@
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\Model.dll.config
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\Model.dll
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\Model.pdb
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\EntityFramework.dll
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\EntityFramework.xml
+E:\DoAn_Web\project\LaptopStore\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\DoAn_Web\project\LaptopStore\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\DoAn_Web\project\LaptopStore\Model\obj\Debug\Model.csproj.CopyComplete
+E:\DoAn_Web\project\LaptopStore\Model\obj\Debug\Model.dll
+E:\DoAn_Web\project\LaptopStore\Model\obj\Debug\Model.pdb
