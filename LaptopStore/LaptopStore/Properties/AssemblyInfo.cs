@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LaptopStore")]
+[assembly: AssemblyTitle("PictureStore")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("LaptopStore")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2022")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("PictureStore")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a47b299b-3c62-425f-b9d9-3a56a0b5319b")]
+[assembly: Guid("c154aeff-3e52-4e8f-ad08-dbadae0c9d33")]
 
 // Version information for an assembly consists of the following four values:
 //
