@@ -15,7 +15,7 @@ namespace LaptopStore.Controllers
     {
         private LaptopStoreContext db = new LaptopStoreContext();
 
-        // GET: Pictures
+        // GET: Products
         public ActionResult Index(string search, int? page, int? size, string orderBy, string orderType)
         {
             var pictures = db.products.Include(p => p.category);
@@ -87,7 +87,10 @@ namespace LaptopStore.Controllers
             return View(pictures.ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Pictures/Details/5
+        //GET: New Products
+
+
+        // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)

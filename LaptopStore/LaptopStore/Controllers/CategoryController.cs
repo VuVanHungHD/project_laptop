@@ -22,7 +22,7 @@ namespace LaptopStore.Controllers
         {
             ViewBag.category = db.categories.Find(id);
             ViewBag.categoriesChild = db.categories.Where(c => c.parentId == id).ToList();
-            ViewBag.pictures = db.products.Where(p => p.categoryId == id).ToList();
+            ViewBag.product = db.products.Where(p => p.categoryId == id).ToList();
             return View();
         }
     }
