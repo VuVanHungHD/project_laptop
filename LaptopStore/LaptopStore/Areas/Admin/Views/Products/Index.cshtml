@@ -1,9 +1,9 @@
-﻿@model PagedList.IPagedList<LaptopStore.Models.Picture>
+﻿@model PagedList.IPagedList<LaptopStore.Models.Product>
 @using PagedList.Mvc;
 
 
 @{
-    ViewBag.Title = "Quản lý danh sách tranh";
+    ViewBag.Title = "Quản lý danh sách sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -152,6 +152,6 @@
 <script>
     document.getElementById("selectPageSize").onchange = function () {
         const pageSize = document.getElementById("selectPageSize").value;
-        window.location.href = "/Admin/Pictures?search=@ViewBag.search&size=" + pageSize;
+        window.location.href = "/Admin/Products?search=@ViewBag.search&size=" + pageSize;
     }
 </script>

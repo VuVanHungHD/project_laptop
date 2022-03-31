@@ -70,10 +70,11 @@ namespace LaptopStore.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                string path = Path.Combine(Server.MapPath("~/images/products/"), Path.GetFileName(image.FileName));
+                string path = Path.Combine(Server.MapPath("~/images/pictures/"), Path.GetFileName(image.FileName));
                 image.SaveAs(path);
-                product.imageUrl = ("/images/products/" + image.FileName);
+                product.imageUrl = ("/images/pictures/" + image.FileName);
 
+                product.createDate = DateTime.Now;
                 db.products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,10 +111,10 @@ namespace LaptopStore.Areas.Admin.Controllers
             {
                 if (image != null)
                 {
-                    string path = Path.Combine(Server.MapPath("~/images/products/"), Path.GetFileName(image.FileName));
+                    string path = Path.Combine(Server.MapPath("~/images/pictures/"), Path.GetFileName(image.FileName));
                     image.SaveAs(path);
-                    product.imageUrl = ("/images/products/" + image.FileName);
-                } 
+                    product.imageUrl = ("/images/pictures/" + image.FileName);
+                }
                 else
                 {
                     product.imageUrl = imageOld;

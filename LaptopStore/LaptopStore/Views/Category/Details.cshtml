@@ -30,7 +30,21 @@
                 <div class="row">
                     @foreach (var item in ViewBag.product)
                     {
-                        <div class="col-lg-3 col-md-3 col-sm-3 mix oranges fresh-meat">
+                        <div class="col-lg-3 col-md-3 col-sm-3 mix oranges fresh-meat bord">
+                            @*<div class="featured__item">
+                                    <div class="featured__item__pic set-bg" data-setbg="@item.imageUrl">
+                                        <ul class="featured__item__pic__hover">
+                                            <li><a href="@Url.Action("Details", "Products", new { id = item.id})"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="javascript:void(0);" onclick="like(@item.id)"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="javascript:void(0);" onclick="addCart(@item.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="featured__item__text">
+                                        <h6><a href="@Url.Action("Details", "Products", new { id = item.id})">@item.name</a></h6>
+                                        <h5>@item.price VNĐ</h5>
+                                    </div>
+                                </div>*@
+
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="@item.imageUrl">
                                     <ul class="featured__item__pic__hover">
@@ -40,11 +54,15 @@
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="@Url.Action("Details", "Products", new { id = item.id})">@item.name</a></h6>
-                                    <h5>@item.price VNĐ</h5>
+                                    <h7><a href="@Url.Action("Details", "Products", new { id =item.id})">@item.shortDescript</a></h7>
+                                    <h5 class="sz1">
+                                        <em class="sale">@item.promotionPrice</em>
+                                        <x class="no_sale">@item.price </x>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
+
                     }
                 </div>
             </div>

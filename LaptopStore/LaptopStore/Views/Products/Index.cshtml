@@ -9,7 +9,7 @@
 <section class="" style="padding-bottom:20px; padding-top:20px">
     <div class="container">
         <div class="row">
-            
+
             <div class="col-lg-12 col-md-12">
                 <div class="filter__item">
                     <div class="row">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-lg-4 col-md-2">
                                 <div class="filter__sort">
-                                    <input type="submit" class="site-btn" value="áp dụng"/>
+                                    <input type="submit" class="site-btn" value="áp dụng" />
                                 </div>
                             </div>
 
@@ -53,7 +53,7 @@
                 <div class="row">
                     @foreach (var item in Model)
                     {
-                        <div class="col-lg-3 col-md-3 col-sm-3 mix oranges fresh-meat">
+                        <div class="col-lg-3 col-md-3 col-sm-3 mix oranges fresh-meat bord">
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="@item.imageUrl">
                                     <ul class="featured__item__pic__hover">
@@ -63,14 +63,17 @@
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="@Url.Action("Details", "Products", new { id = item.id})">@item.name</a></h6>
-                                    <h5>@item.price VNĐ</h5>
+                                    <h7><a href="@Url.Action("Details", "Products", new { id =item.id})">@item.shortDescript</a></h7>
+                                    <h5 class="sz1">
+                                        <em class="sale">@item.promotionPrice</em>
+                                        <x class="no_sale">@item.price </x>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
-                
+
                 <div class="product__pagination">
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, size = ViewBag.size, search = ViewBag.search }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
                 </div>

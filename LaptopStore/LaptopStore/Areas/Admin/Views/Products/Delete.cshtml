@@ -1,12 +1,12 @@
-﻿@model LaptopStore.Models.Picture
+﻿@model LaptopStore.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<div  class="bg-white shadow ">
-    <h4 class="pt-2 pl-5">Chi tiết tác phẩm</h4>
+<div class="bg-white shadow ">
+    <h4 class="pt-2 pl-5">Bạn chắc chắn muốn xóa sản phẩm này?</h4>
     <hr />
     <dl class="dl-horizontal pt-2 pl-5">
         <dt>
@@ -30,7 +30,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.price) (VND)
+            @Html.DisplayFor(model => model.price)
         </dd>
 
         <dt>
@@ -74,11 +74,11 @@
         </dd>
 
         <dt>
-            Ảnh
+            @Html.DisplayNameFor(model => model.imageUrl)
         </dt>
 
         <dd>
-            <img src="@Model.imageUrl" class="w-25"/>
+            <img src="@Model.imageUrl"/>
         </dd>
 
         <dt>
@@ -88,9 +88,15 @@
         <dd>
             @Html.DisplayFor(model => model.status)
         </dd>
+
     </dl>
-    <div class="form-actions no-color pt-2 pb-2 pl-5 d-flex flex-row">
-        <div>@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.id }, new { @class = "btn btn-warning mr-2" })</div>
-        <div>@Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-primary" })</div>
-    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color p-5 d-flex flex-row">
+            <input type="submit" value="Xóa" class="btn btn-danger mr-2" />
+            <div>@Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-dark" })</div>
+        </div>
+    }
 </div>
