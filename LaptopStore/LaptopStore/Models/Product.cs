@@ -29,12 +29,26 @@ namespace LaptopStore.Models
         public int categoryId { get; set; }
 
         [DefaultValue(0)]
+        [Column(TypeName = "money")]
         [DisplayName("Giá")]
-        public int price { get; set; }
+        public decimal price { get; set; }
 
+        [DisplayName("% khuyến mãi")]
+        public int percentSale { get; set; }
         [DefaultValue(0)]
+        [Column(TypeName = "money")]
         [DisplayName("Giá khuyến mãi")]
-        public int? promotionPrice { get; set; }
+        public decimal promotionPrice
+        {
+            get
+            {
+                return price - (price * (percentSale) / 100);
+            }
+            set
+            {
+                price = value;
+            }
+        }
 
         [DisplayName("Ngày nhập")]
         public DateTime createDate { get; set; }

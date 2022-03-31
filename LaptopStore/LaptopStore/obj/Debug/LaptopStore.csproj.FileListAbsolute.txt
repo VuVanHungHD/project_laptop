@@ -80,7 +80,6 @@ D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\System.Web.Web
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Newtonsoft.Json.xml
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Antlr3.Runtime.pdb
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.AssemblyReference.cache
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.CoreCompileInputs.cache
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.CopyComplete
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.dll

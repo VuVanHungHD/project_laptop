@@ -61,7 +61,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,categoryId,price,descript,material,size,author,likeCount,imageUrl,status")] Product product, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "id,name,categoryId,price,percentSale,descript,material,size,author,likeCount,imageUrl,status")] Product product, HttpPostedFileBase image)
         {
             if (image == null)
             {
