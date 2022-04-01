@@ -21,5 +21,6 @@ namespace LaptopStore.Models
         public DbSet<BillDetail> billDetails { get; set; }
 
         public DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }
