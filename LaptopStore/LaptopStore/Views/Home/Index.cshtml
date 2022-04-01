@@ -21,8 +21,8 @@
                             <div class="featured__item__text">
                                 <h7><a href="@Url.Action("Details", "Products", new { id = p.id})">@p.shortDescript</a></h7>
                                 <h5 class="sz1">
-                                    <em class="sale">@p.promotionPrice</em>
-                                    <x class="no_sale">@p.price </x>
+                                    <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                    <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
                                 </h5>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                         <div class="featured__item__text">
                             <h7><a href="@Url.Action("Details", "Products", new { id = p.id})">@p.shortDescript</a></h7>
                             <h5 class="sz1">
-                                <em class="sale">@p.promotionPrice</em>
-                                <x class="no_sale">@p.price </x>
+                                <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
                             </h5>
                         </div>
                     </div>
@@ -91,9 +91,9 @@
                                         <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
                                         <p>
                                             <h7 class="sz1">
-                                                <em class="sale">@ViewBag.top6InCate1[i].promotionPrice</em>
+                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].promotionPrice)</em>
                                             </h7>
-                                            <h8><x class="no_sale">@ViewBag.top6InCate1[i].price </x></h8>
+                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].price) </x></h8>
                                         </p>
                                     </div>
 
@@ -105,20 +105,20 @@
                         <div class="latest-prdouct__slider__item">
                             @for (var i = 3; i < 6; i++)
                             {
-                            <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate1[i].id})" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="@ViewBag.top6InCate1[i].imageUrl" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
-                                    <p>
-                                        <h7 class="sz1">
-                                            <em class="sale">@ViewBag.top6InCate1[i].promotionPrice</em>
-                                        </h7>
-                                        <h8><x class="no_sale">@ViewBag.top6InCate1[i].price </x></h8>
-                                    </p>
-                                </div>
-                            </a>
+                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate1[i].id})" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="@ViewBag.top6InCate1[i].imageUrl" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
+                                        <p>
+                                            <h7 class="sz1">
+                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].promotionPrice)</em>
+                                            </h7>
+                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].price) </x></h8>
+                                        </p>
+                                    </div>
+                                </a>
 
                             }
                         </div>
@@ -141,9 +141,9 @@
                                         <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
                                         <p>
                                             <h7 class="sz1">
-                                                <em class="sale">@ViewBag.top6InCate2[i].promotionPrice</em>
+                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].promotionPrice)</em>
                                             </h7>
-                                            <h8><x class="no_sale">@ViewBag.top6InCate2[i].price </x></h8>
+                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].price)</x></h8>
                                         </p>
                                     </div>
                                 </a>
@@ -154,20 +154,20 @@
                         <div class="latest-prdouct__slider__item">
                             @for (var i = 3; i < 6; i++)
                             {
-                            <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate2[i].id})" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="@ViewBag.top6InCate2[i].imageUrl" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
-                                    <p>
-                                        <h7 class="sz1">
-                                            <em class="sale">@ViewBag.top6InCate2[i].promotionPrice</em>
-                                        </h7>
-                                        <h8><x class="no_sale">@ViewBag.top6InCate2[i].price </x></h8>
-                                    </p>
-                                </div>
-                            </a>
+                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate2[i].id})" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="@ViewBag.top6InCate2[i].imageUrl" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
+                                        <p>
+                                            <h7 class="sz1">
+                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].promotionPrice)</em>
+                                            </h7>
+                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].price)</x></h8>
+                                        </p>
+                                    </div>
+                                </a>
 
                             }
                         </div>
@@ -182,20 +182,20 @@
                         <div class="latest-prdouct__slider__item">
                             @for (var i = 0; i < 3; i++)
                             {
-                            <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate3[i].id})" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="@ViewBag.top6InCate3[i].imageUrl" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
-                                    <p>
-                                        <h7 class="sz1">
-                                            <em class="sale">@ViewBag.top6InCate3[i].promotionPrice</em>
-                                        </h7>
-                                        <h8><x class="no_sale">@ViewBag.top6InCate3[i].price </x></h8>
-                                    </p>
-                                </div>
-                            </a>
+                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate3[i].id})" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="@ViewBag.top6InCate3[i].imageUrl" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
+                                        <p>
+                                            <h7 class="sz1">
+                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].promotionPrice)</em>
+                                            </h7>
+                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].price) </x></h8>
+                                        </p>
+                                    </div>
+                                </a>
 
                             }
 
@@ -211,9 +211,9 @@
                                         <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
                                         <p>
                                             <h7 class="sz1">
-                                                <em class="sale">@ViewBag.top6InCate3[i].promotionPrice</em>
+                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].promotionPrice)</em>
                                             </h7>
-                                            <h8><x class="no_sale">@ViewBag.top6InCate3[i].price </x></h8>
+                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].price)</x></h8>
                                         </p>
                                     </div>
                                 </a>

@@ -29,21 +29,23 @@
                                         <img src="@c.Key.imageUrl" alt="" class="w-50">
                                     <td>
                                         <h5>@c.Key.name</h5>
-                                        <input type="hidden" value="@c.Key.id" class="pictureId"/>
+                                        <input type="hidden" value="@c.Key.id" class="pictureId" />
                                     </td>
                                     <td class="shoping__cart__price">
-                                        @c.Key.price
+                                        @String.Format("{0:0,0 VNĐ}", @c.Key.price)
                                     </td>
+
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="@c.Value" name="countPicture" class="pictureCount"/>
+                                                <input type="text" value="@c.Value" name="countPicture" class="pictureCount" />
                                             </div>
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        @Html.Raw(c.Key.price * c.Value)
+                                        @Html.Raw(@String.Format("{0:0,0 VNĐ}", c.Key.price * c.Value))
                                     </td>
+
                                     <td class="shoping__cart__item__close">
                                         <a href="javascript:void(0);" onclick="deleteItemInCart(@c.Key.id)"><span class="icon_close"></span></a>
                                     </td>
@@ -79,7 +81,7 @@
                 <div class="shoping__checkout">
                     <h5>Giỏ hàng</h5>
                     <ul>
-                        <li>Tổng tiền <span>@ViewBag.total (VNĐ)</span></li>
+                        <li>Tổng tiền <span>@String.Format("{0:0,0 VNĐ}", @ViewBag.total)</span></li>
                     </ul>
                     <a href="@Url.Action("AddBill", "Bill")" class="primary-btn">Đặt hàng</a>
                 </div>

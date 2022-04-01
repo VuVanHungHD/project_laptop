@@ -65,8 +65,8 @@
                                 <div class="featured__item__text">
                                     <h7><a href="@Url.Action("Details", "Products", new { id =item.id})">@item.shortDescript</a></h7>
                                     <h5 class="sz1">
-                                        <em class="sale">@item.promotionPrice</em>
-                                        <x class="no_sale">@item.price </x>
+                                        <em class="sale">@String.Format("{0:0,0}", @item.promotionPrice)</em>
+                                        <x class="no_sale">@String.Format("{0:0,0}", @item.price) </x>
                                     </h5>
                                 </div>
                             </div>
