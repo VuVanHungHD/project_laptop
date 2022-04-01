@@ -40,9 +40,14 @@ body {
 }
 
 .bord {
-    border: 10px 10px;
-    border-style: inset;
-    border-color: #f5f5f5;
+    border:1px solid;
+    border-color: azure;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+
+
+.bord_slide {
     padding-top: 15px;
     padding-right: 10px;
 }

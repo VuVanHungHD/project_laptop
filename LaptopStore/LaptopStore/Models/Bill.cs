@@ -15,7 +15,7 @@ namespace LaptopStore.Models
         [Key]
         [DisplayName("Mã đơn hàng")]
         public int id { get; set; }
-        
+
         public User user { get; set; }
         [Required(ErrorMessage = "Người đặt hàng không được trống")]
         [DisplayName("Người đặt hàng")]
@@ -23,7 +23,7 @@ namespace LaptopStore.Models
 
         [DefaultValue(0)]
         [DisplayName("Tổng tiền")]
-        public int total { get; set; }
+        public decimal total { get; set; }
 
         [DisplayName("Ngày đặt")]
         public DateTime dateCreate { get; set; }

@@ -13,15 +13,15 @@ namespace LaptopStore.Controllers
         private LaptopStoreContext db = new LaptopStoreContext();
         public ActionResult Index()
         {
-            var cart = new Dictionary<Product, decimal>();
-            var total = 0;
+            var cart = new Dictionary<Product, int>();
+            decimal total = 0;
             if (Session["CART"] != null)
             {
-                foreach (var c in (Dictionary<decimal, decimal>)Session["CART"])
+                foreach (var c in (Dictionary<int, int>)Session["CART"])
                 {
                     var product = db.products.Where(p => p.id == c.Key).First();
                     cart.Add(product, c.Value);
-                    //total += product.price * c.Value;
+                    total += product.price * c.Value;
                 }
 
             }
