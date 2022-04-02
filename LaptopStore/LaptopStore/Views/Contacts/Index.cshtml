@@ -9,6 +9,7 @@
     }
 </style>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="~/Scripts/contactController.js"></script>
 <script>
 
     // When the user clicks the marker, an info window opens.
@@ -20,7 +21,7 @@
             center: uluru
         });
 
-        var contentString = "Công ty cổ phần phát triển website by Hùng";
+        var contentString = "Công ty cổ phần phát triển website ";
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -42,8 +43,10 @@
     <div class="row">
         <div class="col-lg-6">
             <h2>Thông tin liên hệ</h2>
-            Công ty cổ phần phát triển website by Hùng
+            Website
             <br />
+            Điện thoại liên hệ : 123456789
+           
         </div>
         <div class="col-lg-6">
             <h2>Bản đồ</h2>
