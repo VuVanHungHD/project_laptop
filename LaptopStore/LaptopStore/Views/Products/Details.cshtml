@@ -15,16 +15,6 @@
                         <img class="product__details__pic__item--large"
                              src="@Model.imageUrl" alt="">
                     </div>
-                    @*<div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                 src="img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                 src="img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                 src="img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                 src="img/product/details/thumb-4.jpg" alt="">
-                        </div>*@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -32,17 +22,17 @@
                     <h3>@Model.name</h3>
                     <input type="hidden" value="@Model.id" id="idPicture">
                     @*<div class="product__details__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
-                        </div>*@
-                    <div class="product__details__rating">
-                        <i class="fa fa-heart"></i>
-                        <span>@Model.likeCount likes</span>
-                    </div>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <span>(18 reviews)</span>
+            </div>
+        <div class="product__details__rating">
+            <i class="fa fa-heart"></i>
+            <span>@Model.likeCount likes</span>
+        </div>*@
                     <div class="product__details__price">@String.Format("{0:0,0 VNĐ}", @Model.price)</div>
 
                     <div class="product__details__quantity">
@@ -55,16 +45,15 @@
                     </div>
                     <button type="submit" class="primary-btn" onclick="addItemIntoCart()">Thêm vào giỏ</button>
                     <a href="javascript:void(0)" class="heart-icon" onclick="like(@Model.id)"><span class="icon_heart_alt"></span></a>
+                    <p><b>Trạng thái</b> <span>@Model.status</span></p>
 
-
-                    <ul>
-                        <li><b>Tác giả</b> <span>@Model.author</span></li>
+                    <ul class="info">
+                        <strong>Thông số kỹ thuật</strong>
                         <li><b>Loại tác phẩm</b> <span>@Model.category.name</span></li>
-                        <li><b>Chất liệu</b> <span>@Model.material</span></li>
-                        <li><b>Kích cỡ</b> <span>@Model.size (cmxcm)</span></li>
-                        <li><b>Trạng thái</b> <span>@Model.status</span></li>
-
+                        @*<li><b>Chất liệu</b> <span>@Model.material</span></li>
+                        <li><b>Kích cỡ</b> <span>@Model.size (cmxcm)</span></li>*@
                     </ul>
+
                 </div>
             </div>
             <div class="col-lg-12">

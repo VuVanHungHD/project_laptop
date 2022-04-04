@@ -9,30 +9,35 @@ using System.Web;
 namespace LaptopStore.Models
 {
     [Table("Product")]
-    public class Product
+    public partial class Product
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        [DisplayName("Mã tác phẩm")]
+        [DisplayName("Mã sản phẩm")]
         public int id { get; set; }
 
-        [Required(ErrorMessage = "Tên tác phẩm không được trống!")]
+        [Required(ErrorMessage = "Tên sản phẩm không được trống!")]
         [StringLength(50)]
-        [DisplayName("Tên tác phẩm")]
+        [DisplayName("Tên sản phẩm")]
         public string name { get; set; }
-        [StringLength(250)]
 
+        [StringLength(250)]
         public Category category { get; set; }
 
-        [Required(ErrorMessage = "Loại tranh không được để trống!")]
-        [DisplayName("Loại tranh")]
+        [Required(ErrorMessage = "Loại sản phẩm không được để trống!")]
+        [DisplayName("Loại sản phẩm")]
         public int categoryId { get; set; }
+        [StringLength(250)]
+
+        [DisplayName("Tiêu đề sản phẩm")]
+        public string shortDescript { get; set; }
 
         [DefaultValue(0)]
         [Column(TypeName = "money")]
         [DisplayName("Giá")]
         public decimal price { get; set; }
 
+        [DefaultValue(0)]
         [DisplayName("% khuyến mãi")]
         public int percentSale { get; set; }
         [DefaultValue(0)]
@@ -50,35 +55,51 @@ namespace LaptopStore.Models
             }
         }
 
-        [DisplayName("Ngày nhập")]
-        public DateTime createDate { get; set; }
-
         [DisplayName("Mô tả")]
         public string descript { get; set; }
+        [DisplayName("CPU")]
 
-        [DisplayName("Chất liệu")]
-        public string material { get; set; }
+        public string cpu { get; set; }
+        [DisplayName("RAM")]
 
-        [RegularExpression("[0-9]+x[0-9]+", ErrorMessage = "Định dạng đúng là: LxW (cm)")]
-        [DisplayName("Kích thước (định dạng chiều-dàixchiều-rộng LxW (cm)) ")]
-        public string size { get; set; }
+        public string ram { get; set; }
+        [DisplayName("Ổ cứng")]
+        public string hardDrive { get; set; }
+        [DisplayName("Card VGA")]
 
-        [DefaultValue("Khuyết danh")]
-        [DisplayName("Tác giả (mặc định: Khuyết danh)")]
-        public string author { get; set; }
+        public string cardVGA { get; set; }
+        [DisplayName("Màn hình")]
+
+        [StringLength(10)]
+        public string screenMonitor { get; set; }
+        [DisplayName("Camera")]
+
+        public string camera { get; set; }
+        [DisplayName("Cổng kết nối")]
+
+        public string connector { get; set; }
+        [DisplayName("Trọng lượng")]
+
+        public string weight { get; set; }
+        [DisplayName("Pin")]
+
+        public string battery { get; set; }
+        [DisplayName("Hệ điều hành")]
+
+        public string operatingSystem { get; set; }
 
         [DefaultValue(0)]
         [DisplayName("Lượt thích")]
         public int likeCount { get; set; }
+        [DisplayName("")]
 
         public string imageUrl { get; set; }
+        [DisplayName("Ngày nhập")]
+        [DefaultValue("DateTime.Now")]
+        public DateTime? createDate { get; set; }
 
         [DefaultValue("Còn hàng")]
         [DisplayName("Trạng thái")]
         public string status { get; set; }
-        [DisplayName("Mô tả ngắn")]
-
-        [StringLength(250)]
-        public string shortDescript { get; set; }
     }
 }
