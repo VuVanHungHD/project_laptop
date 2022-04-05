@@ -26,11 +26,34 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.shortDescript)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortDescript) (VND)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.price)
+            @Html.DisplayFor(model => model.price) (VND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.percentSale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.percentSale) (%)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.promotionPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promotionPrice) (VND)
         </dd>
 
         <dt>
@@ -42,27 +65,83 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.material)
+            @Html.DisplayNameFor(model => model.cpu)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.material)
+            @Html.DisplayFor(model => model.cpu)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.size)
+            @Html.DisplayNameFor(model => model.ram)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.size)
+            @Html.DisplayFor(model => model.ram)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.author)
+            @Html.DisplayNameFor(model => model.hardDrive)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.author)
+            @Html.DisplayFor(model => model.hardDrive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cardVGA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cardVGA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.screenMonitor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.screenMonitor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.camera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.camera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.connector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.connector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.battery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.battery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operatingSystem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operatingSystem)
         </dd>
 
         <dt>
@@ -74,11 +153,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imageUrl)
+            Ảnh
         </dt>
 
         <dd>
-            <img src="@Model.imageUrl"/>
+            <img src="@Model.imageUrl" class="w-25" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createDate)
         </dd>
 
         <dt>
@@ -88,10 +175,10 @@
         <dd>
             @Html.DisplayFor(model => model.status)
         </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color p-5 d-flex flex-row">

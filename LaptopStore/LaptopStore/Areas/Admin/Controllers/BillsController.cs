@@ -27,23 +27,23 @@ namespace LaptopStore.Areas.Admin.Controllers
             return View(bills.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Details(int id)
-        {
-            ViewBag.bill = db.bills.Find(id);
-            var billDetails = new Dictionary<Product, int>();
-            decimal total = 0;
-            var details = db.billDetails.Where(bdt => bdt.billId == id).ToList();
-            foreach (var dt in details)
-            {
-                var pictureId = dt.pictureId;
-                var picture = db.products.Find(pictureId);
-                billDetails.Add(picture, dt.count);
-                total += picture.price * dt.count;
-            }
-            ViewBag.billDetails = billDetails;
-            ViewBag.total = total;
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    ViewBag.bill = db.bills.Find(id);
+        //    var billDetails = new Dictionary<Product, int>();
+        //    decimal total = 0;
+        //    var details = db.billDetails.Where(bdt => bdt.billId == id).ToList();
+        //    foreach (var dt in details)
+        //    {
+        //        var pictureId = dt.pictureId;
+        //        var picture = db.products.Find(pictureId);
+        //        billDetails.Add(picture, dt.count);
+        //        total += picture.price * dt.count;
+        //    }
+        //    ViewBag.billDetails = billDetails;
+        //    ViewBag.total = total;
+        //    return View();
+        //}
         public ActionResult Done(int id)
         {
             var bill = db.bills.Find(id);

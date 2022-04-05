@@ -34,7 +34,7 @@
             <span>@Model.likeCount likes</span>
         </div>*@
                     <div class="product__details__price">@String.Format("{0:0,0 VNĐ}", @Model.price)</div>
-
+                    <div class="product__details__price"><x class="no_sale">@String.Format("{0:0,0}",((@Model.price*100)/(100-@Model.percentSale))) VNĐ</x></div>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -51,7 +51,7 @@
                         <strong>Thông số kỹ thuật</strong>
                         <li><b>Loại tác phẩm</b> <span>@Model.category.name</span></li>
                         @*<li><b>Chất liệu</b> <span>@Model.material</span></li>
-                        <li><b>Kích cỡ</b> <span>@Model.size (cmxcm)</span></li>*@
+            <li><b>Kích cỡ</b> <span>@Model.size (cmxcm)</span></li>*@
                     </ul>
 
                 </div>

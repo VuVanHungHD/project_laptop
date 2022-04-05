@@ -61,7 +61,8 @@ namespace LaptopStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,categoryId,price,percentSale,descript,material,size,author,likeCount,imageUrl,status")] Product product, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "id,name,categoryId,shortDescript,price,percentSale,descript,cpu,ram," +
+            "hardDrive,cardVGA,screenMonitor,camera,connector,weight,battery,operatingSystem,likeCount,imageUrl,status")] Product product, HttpPostedFileBase image)
         {
             if (image == null)
             {
@@ -73,7 +74,6 @@ namespace LaptopStore.Areas.Admin.Controllers
                 string path = Path.Combine(Server.MapPath("~/images/pictures/"), Path.GetFileName(image.FileName));
                 image.SaveAs(path);
                 product.imageUrl = ("/images/pictures/" + image.FileName);
-
                 product.createDate = DateTime.Now;
                 db.products.Add(product);
                 db.SaveChanges();

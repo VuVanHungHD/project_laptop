@@ -29,7 +29,7 @@
                                         <img src="@c.Key.imageUrl" alt="" class="w-50">
                                     <td>
                                         <h5>@c.Key.name</h5>
-                                        <input type="hidden" value="@c.Key.id" class="pictureId" />
+                                        <input type="hidden" value="@c.Key.id" class="productId" />
                                     </td>
                                     <td class="shoping__cart__price">
                                         @String.Format("{0:0,0 VNĐ}", @c.Key.price)
@@ -38,7 +38,7 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="@c.Value" name="countPicture" class="pictureCount" />
+                                                <input type="text" value="@c.Value" name="countProduct" class="productCount" />
                                             </div>
                                         </div>
                                     </td>
@@ -107,8 +107,8 @@
 <script>
     function updateCart() {
         var cart = {};
-        var ids = document.getElementsByClassName("pictureId");
-        var counts = document.getElementsByClassName("pictureCount");
+        var ids = document.getElementsByClassName("productId");
+        var counts = document.getElementsByClassName("productCount");
 
         for (var i = 0; i < ids.length; i++) {
             cart[ids[i].value] = counts[i].value

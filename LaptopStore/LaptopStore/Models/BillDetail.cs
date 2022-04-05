@@ -14,10 +14,10 @@ namespace LaptopStore.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int id { get; set; }
-        public Product picture { get; set; }
+        public Product product { get; set; }
         [Required(ErrorMessage = "Sản phẩm mua không được trống")]
         [DisplayName("Sản phẩm mua")]
-        public int pictureId { get; set; }
+        public int productId { get; set; }
         public Bill bill { get; set; }
         [Required(ErrorMessage = "Đơn hàng không được trống")]
         [DisplayName("Đơn hàng")]

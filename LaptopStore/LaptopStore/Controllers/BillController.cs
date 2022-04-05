@@ -50,14 +50,14 @@ namespace LaptopStore.Controllers
             decimal total = 0;
             foreach (var c in (Dictionary<int, int>)Session["CART"])
             {
-                var picture = db.products.Where(p => p.id == c.Key).First();
+                var product = db.products.Where(p => p.id == c.Key).First();
                 db.billDetails.Add(new BillDetail()
                 {
-                    picture = picture,
+                    product = product,
                     bill = bill,
                     count = c.Value
                 });
-                total += picture.price * c.Value;
+                total += product.price * c.Value;
             }
             bill.total = total;
             bill.dateCreate = DateTime.Now;
@@ -77,10 +77,10 @@ namespace LaptopStore.Controllers
             var details = db.billDetails.Where(bdt => bdt.billId == id).ToList();
             foreach (var dt in details)
             {
-                var pictureId = dt.pictureId;
-                var picture = db.products.Find(pictureId);
-                billDetails.Add(picture, dt.count);
-                total += picture.price * dt.count;
+                var productId = dt.productId;
+                var product = db.products.Find(productId);
+                billDetails.Add(product, dt.count);
+                total += product.price * dt.count;
             }
             ViewBag.billDetails = billDetails;
             ViewBag.total = total;

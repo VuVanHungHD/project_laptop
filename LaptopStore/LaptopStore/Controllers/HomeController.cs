@@ -20,10 +20,6 @@ namespace LaptopStore.Controllers
             ViewBag.top6InCate3 = db.products.Where(p => p.status == "Còn hàng" && p.categoryId == 1003).OrderByDescending(p => p.id).Take(6).ToList();
             return View();
         }
-        public ActionResult test()
-        {
-            return View();
-        }
 
     }
 }
