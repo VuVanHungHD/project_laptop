@@ -38,7 +38,7 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="@c.Value" name="countPicture" class="productCount" />
+                                                <input type="text" value="@c.Value" name="countProduct" class="productCount" />
                                             </div>
                                         </div>
                                     </td>
@@ -93,7 +93,7 @@
 <script>
     function deleteItemInCart(id) {
         const formData = new FormData();
-        formData.append("idPicture", id);
+        formData.append("idProduct", id);
         fetch("@Url.Action("DeleteItemInCart", "Cart")", {
             method: 'POST',
             body: formData

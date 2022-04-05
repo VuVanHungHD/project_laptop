@@ -86,3 +86,4 @@ D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopSt
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.pdb
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Facebook.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Facebook.xml
+D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.AssemblyReference.cache

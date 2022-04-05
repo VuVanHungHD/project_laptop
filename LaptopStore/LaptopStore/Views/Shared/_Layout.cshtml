@@ -291,8 +291,8 @@
     <script>
     function addCart(id, count) {
         const formData = new FormData();
-        formData.append("idPicture", id);
-        formData.append("countPicture", count);
+        formData.append("idProduct", id);
+        formData.append("countProduct", count);
         fetch("@Url.Action("AddToCart", "Cart")", {
             method: 'POST',
             body: formData
@@ -310,16 +310,7 @@
            /* alert("Bạn đã thích sản phẩm!");*/
         });
         }
-        function seen(id) {
-        const formData = new FormData();
-        formData.append("id", id);
-        fetch("@Url.Action("Seen", "Products")", {
-            method: 'POST',
-            body: formData
-        }).then(() => {
-           /* alert("Bạn đã thích sản phẩm!");*/
-        });
-    }
+
     </script>
     @*<script>
             function addClass(elements, clazz) {
