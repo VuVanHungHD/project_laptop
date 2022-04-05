@@ -41,7 +41,7 @@
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            
+
         </div>
         <div class="header__top__right__auth mr-1">
             @if (Session["USER_NAME"] != null)
@@ -307,7 +307,17 @@
             method: 'POST',
             body: formData
         }).then(() => {
-            alert("Bạn đã thích sản phẩm!");
+           /* alert("Bạn đã thích sản phẩm!");*/
+        });
+        }
+        function seen(id) {
+        const formData = new FormData();
+        formData.append("id", id);
+        fetch("@Url.Action("Seen", "Products")", {
+            method: 'POST',
+            body: formData
+        }).then(() => {
+           /* alert("Bạn đã thích sản phẩm!");*/
         });
     }
     </script>

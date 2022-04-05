@@ -102,20 +102,19 @@ namespace LaptopStore.Controllers
             {
                 return HttpNotFound();
             }
+            var viw = product.likeCount + 1;
+            //ViewBag.relatedProducts = db.products.Where(p => p.status == "Còn hàng" && p.category.id == product.category.id).Take(8).ToList();
 
-            ViewBag.relatedProducts = db.products.Where(p => p.status == "Còn hàng" && p.category.id == product.category.id).Take(8).ToList();
             return View(product);
         }
 
         // GET: Products/Details/5
         public ActionResult Like(int id)
         {
-            var userId = (int)Session["USER"];
             var pic = db.products.Find(id);
             pic.likeCount = pic.likeCount + 1;
             db.SaveChanges();
-
-            return Json(new { status = "success" });
+            return Json(new {status="succes" });
         }
 
         protected override void Dispose(bool disposing)

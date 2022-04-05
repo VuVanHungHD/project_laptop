@@ -33,34 +33,34 @@ namespace LaptopStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddToCart(int idProduct, int? countProduct)
+        public ActionResult AddToCart(int idPicture, int? countPicture)
         {
 
             if (Session["CART"] == null)
             {
                 var cart = new Dictionary<int, int>();//id sp - so luong
-                int count = (countProduct ?? 1);
-                cart.Add(idProduct, count);
+                int count = (countPicture ?? 1);
+                cart.Add(idPicture, count);
                 Session["CART"] = cart;
             }
             else
             {
                 var cart = (Dictionary<int, int>)Session["CART"];
-                if (cart.ContainsKey(idProduct))
+                if (cart.ContainsKey(idPicture))
                 {
-                    if (countProduct == null)
+                    if (countPicture == null)
                     {
-                        cart[idProduct] = cart[idProduct]++;
+                        cart[idPicture] = cart[idPicture]++;
                     }
                     else
                     {
-                        cart[idProduct] = (int)countProduct;
-                    }    
+                        cart[idPicture] = (int)countPicture;
+                    }
                 }
                 else
                 {
-                    int count = (countProduct ?? 1);
-                    cart.Add(idProduct, count);
+                    int count = (countPicture ?? 1);
+                    cart.Add(idPicture, count);
                 }
             }
 
@@ -68,10 +68,10 @@ namespace LaptopStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteItemInCart(int idProduct)
+        public ActionResult DeleteItemInCart(int idPicture)
         {
             var cart = (Dictionary<int, int>)Session["CART"];
-            cart.Remove(idProduct);
+            cart.Remove(idPicture);
             return Redirect("/Cart");
         }
 
