@@ -43,20 +43,10 @@ namespace LaptopStore.Models
         [DefaultValue(0)]
         [Column(TypeName = "money")]
         [DisplayName("Giá khuyến mãi")]
-        public decimal promotionPrice
-        {
-            get
-            {
-                return price - (price * (percentSale) / 100);
-            }
-            set
-            {
-                price = value;
-            }
-        }
+        public decimal promotionPrice { get; set; }
 
         [DisplayName("Mô tả")]
-        public string descript { get; set; }
+        public string content { get; set; }
         [DisplayName("CPU")]
 
         public string cpu { get; set; }
@@ -89,8 +79,8 @@ namespace LaptopStore.Models
         public string operatingSystem { get; set; }
 
         [DefaultValue(0)]
-        [DisplayName("Lượt thích")]
-        public int likeCount { get; set; }
+        [DisplayName("Lượt xem")]
+        public int viewCount { get; set; }
         [DisplayName("")]
 
         public string imageUrl { get; set; }

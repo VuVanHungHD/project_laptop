@@ -20,7 +20,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>@Model.name</h3>
-                    <input type="hidden" value="@Model.id" id="idPicture">
+                    <input type="hidden" value="@Model.id" id="idProduct">
                     @*<div class="product__details__rating">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -31,7 +31,7 @@
             </div>
         <div class="product__details__rating">
             <i class="fa fa-heart"></i>
-            <span>@Model.likeCount likes</span>
+            <span>@Model.viewCount views</span>
         </div>*@
                     <div class="product__details__price">@String.Format("{0:0,0 VNĐ}", @Model.price)</div>
                     <div class="product__details__price"><x class="no_sale">@String.Format("{0:0,0}",((@Model.price*100)/(100-@Model.percentSale))) VNĐ</x></div>
@@ -39,19 +39,26 @@
                         <div class="quantity">
                             <div class="pro-qty">
 
-                                <input type="text" value="1" id="countPicture">
+                                <input type="text" value="1" id="countProduct">
                             </div>
                         </div>
                     </div>
                     <button type="submit" class="primary-btn" onclick="addItemIntoCart()">Thêm vào giỏ</button>
-                    <a href="javascript:void(0)" class="heart-icon" onclick="like(@Model.id)"><span class="icon_heart_alt"></span></a>
+                    <a href="javascript:void(0)" class="heart-icon" onclick="view(@Model.id)"><span class="icon_heart_alt"></span></a>
                     <p><b>Trạng thái</b> <span>@Model.status</span></p>
 
                     <ul class="info">
                         <strong>Thông số kỹ thuật</strong>
-                        <li><b>Loại tác phẩm</b> <span>@Model.category.name</span></li>
-                        @*<li><b>Chất liệu</b> <span>@Model.material</span></li>
-            <li><b>Kích cỡ</b> <span>@Model.size (cmxcm)</span></li>*@
+                        <li><b>CPU</b> <span>@Model.cpu</span></li>
+                        <li><b>RAM</b> <span>@Model.ram</span></li>
+                        <li><b>Ổ cứng</b> <span>@Model.hardDrive</span></li>
+                        <li><b>Card VGA</b> <span>@Model.cardVGA</span></li>
+                        <li><b>Màn hình</b> <span>@Model.screenMonitor</span></li>
+                        <li><b>Cổng kết nối</b> <span>@Model.connector</span></li>
+                        <li><b>Trọng lượng</b> <span>@Model.weight</span></li>
+                        <li><b>Pin</b> <span>@Model.battery</span></li>
+                        <li><b>Hệ điều hành</b> <span>@Model.operatingSystem</span></li>
+
                     </ul>
 
                 </div>
@@ -64,7 +71,7 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <p>@Model.descript</p>
+                        <p>@Model.content</p>
                     </div>
                 </div>
             </div>
@@ -90,7 +97,7 @@
                             <div class="product__item__pic set-bg" data-setbg="@p.imageUrl">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="@Url.Action("Details", "Products", new { id = p.id})"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="javascript:void(0);" onclick="like(@p.id)"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
@@ -110,8 +117,8 @@
 
 <script>
     function addItemIntoCart() {
-        var id = document.getElementById("idPicture").value;
-        var count = document.getElementById("countPicture").value;
+        var id = document.getElementById("idProduct").value;
+        var count = document.getElementById("countProduct").value;
         console.log(id, count);
         addCart(id, count);
     }

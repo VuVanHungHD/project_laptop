@@ -1,3 +1,4 @@
+D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\EntityFramework.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\LaptopStore.dll.config
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\LaptopStore.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\LaptopStore.pdb
@@ -51,8 +52,8 @@ D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\roslyn\vbc.rsp
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\roslyn\VBCSCompiler.exe
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\roslyn\VBCSCompiler.exe.config
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Antlr3.Runtime.dll
-D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\EntityFramework.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\EntityFramework.SqlServer.dll
+D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Facebook.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Microsoft.Web.Infrastructure.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Newtonsoft.Json.dll
@@ -68,6 +69,7 @@ D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\System.Web.Web
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\WebGrease.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\EntityFramework.xml
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\EntityFramework.SqlServer.xml
+D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Facebook.xml
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\PagedList.xml
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\PagedList.Mvc.xml
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\System.Web.Helpers.xml
@@ -84,6 +86,3 @@ D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopSt
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.CopyComplete
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.dll
 D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.pdb
-D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Facebook.dll
-D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\bin\Facebook.xml
-D:\DoAn_Web\git\GitHub\project_laptop\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.AssemblyReference.cache

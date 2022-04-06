@@ -13,7 +13,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
-            ViewBag.pictureLikeMost = db.products.OrderByDescending(p => p.likeCount).First();
+            ViewBag.productViewMost = db.products.OrderByDescending(p => p.viewCount).First();
             try
             {
                 ViewBag.moneyInMoth = db.bills.Where(b => b.dateCreate.Month == DateTime.Now.Month && b.status == "Đã giao").Sum(b => b.total);

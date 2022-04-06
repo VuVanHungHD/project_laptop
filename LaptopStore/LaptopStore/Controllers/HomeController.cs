@@ -13,7 +13,7 @@ namespace LaptopStore.Controllers
         public ActionResult Index()
         {
             
-            ViewBag.top6Like = db.products.Where(p => p.status == "Còn hàng").OrderByDescending(p => p.likeCount).Take(6);
+            ViewBag.top6View = db.products.Where(p => p.status == "Còn hàng").OrderByDescending(p => p.viewCount).Take(6);
             ViewBag.top8New = db.products.Where(p => p.status == "Còn hàng").OrderByDescending(p => p.createDate).Take(8);
             ViewBag.top6InCate1 = db.products.Where(p => p.status == "Còn hàng" && p.categoryId == 1).OrderByDescending(p => p.id).Take(6).ToList();
             ViewBag.top6InCate2 = db.products.Where(p => p.status == "Còn hàng" && p.categoryId == 2).OrderByDescending(p => p.id).Take(6).ToList();

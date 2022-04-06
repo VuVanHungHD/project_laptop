@@ -22,7 +22,7 @@ namespace LaptopStore.Controllers
             if (!String.IsNullOrEmpty(search))
             {
                 ViewBag.search = search;
-                products = products.Where(p => p.name.Contains(search) || p.descript.Contains(search));
+                products = products.Where(p => p.name.Contains(search) || p.content.Contains(search));
             }
 
             if(!String.IsNullOrEmpty(orderType) && orderType == "DESC")
@@ -43,7 +43,7 @@ namespace LaptopStore.Controllers
                         ViewBag.orderBy = "price";
                         break;
                     case "likeCount":
-                        products = products.OrderByDescending(p => p.likeCount);
+                        products = products.OrderByDescending(p => p.viewCount);
                         ViewBag.orderBy = "likeCount";
                         break;
                     default:
@@ -70,7 +70,7 @@ namespace LaptopStore.Controllers
                         ViewBag.orderBy = "price";
                         break;
                     case "likeCount":
-                        products = products.OrderBy(p => p.likeCount);
+                        products = products.OrderBy(p => p.viewCount);
                         ViewBag.orderBy = "likeCount";
                         break;
                     default:
@@ -102,17 +102,17 @@ namespace LaptopStore.Controllers
             {
                 return HttpNotFound();
             }
-            var viw = product.likeCount + 1;
+            var viw = product.viewCount + 1;
             //ViewBag.relatedProducts = db.products.Where(p => p.status == "Còn hàng" && p.category.id == product.category.id).Take(8).ToList();
 
             return View(product);
         }
 
         // GET: Products/Details/5
-        public ActionResult Like(int id)
+        public ActionResult View(int id)
         {
-            var pic = db.products.Find(id);
-            pic.likeCount = pic.likeCount + 1;
+            var lap = db.products.Find(id);
+            lap.viewCount = lap.viewCount + 1;
             db.SaveChanges();
             return Json(new {status="succes" });
         }

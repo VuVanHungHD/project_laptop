@@ -6,9 +6,9 @@ body {
 }
 
 
-    .header__menu ul li a {
-        color: #000000;
-    }
+.header__menu ul li a {
+    color: #000000;
+}
 
 /*.hero__categories__all {
     background-color: #2b80dd;
@@ -40,7 +40,7 @@ body {
 }
 
 .bord {
-    border:1px solid;
+    border: 1px solid;
     border-color: azure;
     padding-top: 15px;
     padding-right: 10px;
@@ -51,14 +51,12 @@ body {
     padding-top: 15px;
     padding-right: 10px;
 }
+
 .info {
     padding: 5px 5px;
-    border-block-color:azure;
-    border-block-color:aquamarine;
 }
 
     .info > li {
         padding: 5px 5px;
         border: 1px solid;
-        border-block-color: aquamarine;
     }

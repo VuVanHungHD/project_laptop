@@ -23,7 +23,7 @@ namespace LaptopStore.Areas.Admin.Controllers
             if (!String.IsNullOrEmpty(search))
             {
                 ViewBag.search = search;
-                products = products.Where(p => p.name.Contains(search) || p.descript.Contains(search));
+                products = products.Where(p => p.name.Contains(search) || p.content.Contains(search));
             }
             products = products.OrderBy(p => p.id);
             int pageNumber = (page ?? 1);
@@ -52,7 +52,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.categoryId = new SelectList(db.categories, "id", "name");
-            var model = new Product() { status = "Còn hàng", likeCount = 0 };
+            var model = new Product() { status = "Còn hàng", viewCount = 0 };
             return View(model);
         }
 
@@ -61,8 +61,8 @@ namespace LaptopStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,categoryId,shortDescript,price,percentSale,descript,cpu,ram," +
-            "hardDrive,cardVGA,screenMonitor,camera,connector,weight,battery,operatingSystem,likeCount,imageUrl,status")] Product product, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "id,name,categoryId,shortDescript,content,price,percentSale,promotionPrice,cpu,ram," +
+            "hardDrive,cardVGA,screenMonitor,camera,connector,weight,battery,operatingSystem,viewCount,imageUrl,status")] Product product, HttpPostedFileBase image)
         {
             if (image == null)
             {
@@ -75,6 +75,7 @@ namespace LaptopStore.Areas.Admin.Controllers
                 image.SaveAs(path);
                 product.imageUrl = ("/images/pictures/" + image.FileName);
                 product.createDate = DateTime.Now;
+                product.promotionPrice = (product.price - (product.price * product.percentSale)/100);
                 db.products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -105,7 +106,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,categoryId,price,descript,material,size,author,likeCount,imageUrl,status")] Product product, HttpPostedFileBase image, string imageOld)
+        public ActionResult Edit([Bind(Include = "id,name,categoryId,price,descript,material,size,author,viewCount,imageUrl,status")] Product product, HttpPostedFileBase image, string imageOld)
         {
             if (ModelState.IsValid)
             {
@@ -119,6 +120,7 @@ namespace LaptopStore.Areas.Admin.Controllers
                 {
                     product.imageUrl = imageOld;
                 }
+                product.promotionPrice = (product.price - (product.price * product.percentSale) / 100);
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

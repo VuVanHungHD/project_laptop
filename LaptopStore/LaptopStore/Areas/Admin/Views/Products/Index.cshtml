@@ -94,7 +94,7 @@
                         <th>Trọng lượng</th>
                         <th>Pin</th>
                         <th>Hệ điều hành</th>
-                        <th>Số lượt thích</th>
+                        <th>Số lượt xem</th>
                         <th>Trạng thái</th>
                         <th>Hành động</th>
                     </tr>
@@ -128,8 +128,11 @@
                             @Html.DisplayFor(modelItem => item.promotionPrice)
                         </td>
                         <td class="text-left">
-                            @Html.DisplayFor(modelItem => item.descript)
+                            @Html.DisplayFor(modelItem => item.content)
                         </td>
+
+
+
                         <td class="text-center">
                             @Html.DisplayFor(modelItem => item.cpu)
                         </td>
@@ -161,7 +164,7 @@
                             @Html.DisplayFor(modelItem => item.operatingSystem)
                         </td>
                         <td class="text-center">
-                            @Html.DisplayFor(modelItem => item.likeCount)
+                            @Html.DisplayFor(modelItem => item.viewCount)
                         </td>
                         <td class="text-center">
                             @Html.DisplayFor(modelItem => item.status)

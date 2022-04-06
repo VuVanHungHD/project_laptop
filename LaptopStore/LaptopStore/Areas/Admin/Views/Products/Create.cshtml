@@ -40,6 +40,14 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.content, new { @class = "form-control", @rows = "10" })
+            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
@@ -52,15 +60,6 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.percentSale, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.percentSale, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.descript, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.descript, new { @class = "form-control", @rows = "5" })
-            @Html.ValidationMessageFor(model => model.descript, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -145,10 +144,10 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.likeCount, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.viewCount, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.likeCount, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
-            @Html.ValidationMessageFor(model => model.likeCount, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.viewCount, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            @Html.ValidationMessageFor(model => model.viewCount, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -188,4 +187,5 @@
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+    CKEDITOR.replace("ckeContent");
 </script>

@@ -22,7 +22,7 @@
                                         <option value="id">Ngày tạo</option>
                                         <option value="name">Tên</option>
                                         <option value="price">Giá</option>
-                                        <option value="likeCount">Lượt thích</option>
+                                        <option value="viewCount">Lượt thích</option>
                                     </select>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 <div class="featured__item__pic set-bg" data-setbg="@item.imageUrl">
                                     <ul class="featured__item__pic__hover">
                                         <li><a href="@Url.Action("Details", "Products", new { id = item.id})"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="javascript:void(0);" onclick="like(@item.id)"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="javascript:void(0);" onclick="view(@item.id)"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="javascript:void(0);" onclick="addCart(@item.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>

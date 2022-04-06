@@ -300,14 +300,13 @@
             alert("Đã thêm vào giỏ hàng!");
         });
     }
-    function like(id) {
+    function view(id) {
         const formData = new FormData();
         formData.append("id", id);
-        fetch("@Url.Action("Like", "Products")", {
+        fetch("@Url.Action("View", "Products")", {
             method: 'POST',
             body: formData
         }).then(() => {
-           /* alert("Bạn đã thích sản phẩm!");*/
         });
         }
 
