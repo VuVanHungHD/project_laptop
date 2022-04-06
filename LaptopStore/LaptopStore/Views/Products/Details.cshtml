@@ -22,19 +22,19 @@
                     <h3>@Model.name</h3>
                     <input type="hidden" value="@Model.id" id="idProduct">
                     @*<div class="product__details__rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <span>(18 reviews)</span>
-            </div>
-        <div class="product__details__rating">
-            <i class="fa fa-heart"></i>
-            <span>@Model.viewCount views</span>
-        </div>*@
-                    <div class="product__details__price">@String.Format("{0:0,0 VNĐ}", @Model.price)</div>
-                    <div class="product__details__price"><x class="no_sale">@String.Format("{0:0,0}",((@Model.price*100)/(100-@Model.percentSale))) VNĐ</x></div>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span>(18 reviews)</span>
+                            </div>
+                        <div class="product__details__rating">
+                            <i class="fa fa-heart"></i>
+                            <span>@Model.viewCount views</span>
+                        </div>*@
+                    <div class="product__details__price">@String.Format("{0:0,0 VNĐ}", @Model.promotionPrice)</div>
+                    <div class="product__details__price"><x class="no_sale">@String.Format("{0:0,0}", Model.price) VNĐ</x></div>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -48,7 +48,7 @@
                     <p><b>Trạng thái</b> <span>@Model.status</span></p>
 
                     <ul class="info">
-                        <strong>Thông số kỹ thuật</strong>
+                        Thông số kỹ thuật
                         <li><b>CPU</b> <span>@Model.cpu</span></li>
                         <li><b>RAM</b> <span>@Model.ram</span></li>
                         <li><b>Ổ cứng</b> <span>@Model.hardDrive</span></li>
@@ -71,7 +71,8 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <p>@Model.content</p>
+                        @*<p>@Model.content</p>*@
+                        @Html.Raw(Model.content)
                     </div>
                 </div>
             </div>

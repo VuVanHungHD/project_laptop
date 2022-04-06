@@ -50,7 +50,7 @@
                             <ul>
                                 @foreach (var c in ViewBag.cart)
                                 {
-                                    <li>@c.Key.name (x @c.Value)<span>@Html.Raw(c.Key.price * c.Value)</span></li>
+                                    <li>@c.Key.name (x @c.Value)<span>@Html.Raw(c.Key.promotionPrice * c.Value)</span></li>
                                 }
 
                             </ul>

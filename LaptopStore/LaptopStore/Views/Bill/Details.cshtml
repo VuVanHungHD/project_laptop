@@ -32,13 +32,13 @@
                                         <input type="hidden" value="@c.Key.id" class="pictureId" />
                                     </td>
                                     <td class="shoping__cart__price">
-                                        @c.Key.price
+                                        @c.Key.promotionPrice
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         @c.Value
                                     </td>
                                     <td class="shoping__cart__total">
-                                        @Html.Raw(c.Key.price * c.Value)
+                                        @Html.Raw(c.Key.promotionPrice * c.Value)
                                     </td>
                                 </tr>
                             }

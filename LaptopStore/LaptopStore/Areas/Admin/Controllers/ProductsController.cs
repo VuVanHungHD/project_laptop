@@ -60,6 +60,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,name,categoryId,shortDescript,content,price,percentSale,promotionPrice,cpu,ram," +
             "hardDrive,cardVGA,screenMonitor,camera,connector,weight,battery,operatingSystem,viewCount,imageUrl,status")] Product product, HttpPostedFileBase image)
@@ -105,8 +106,10 @@ namespace LaptopStore.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,categoryId,price,descript,material,size,author,viewCount,imageUrl,status")] Product product, HttpPostedFileBase image, string imageOld)
+        public ActionResult Edit([Bind(Include = "id,name,categoryId,shortDescript,content,price,percentSale,promotionPrice,cpu,ram," +
+            "hardDrive,cardVGA,screenMonitor,camera,connector,weight,battery,operatingSystem,viewCount,imageUrl,status")] Product product, HttpPostedFileBase image, string imageOld)
         {
             if (ModelState.IsValid)
             {
@@ -120,7 +123,7 @@ namespace LaptopStore.Areas.Admin.Controllers
                 {
                     product.imageUrl = imageOld;
                 }
-                product.promotionPrice = (product.price - (product.price * product.percentSale) / 100);
+                product.promotionPrice = (product.price - ((product.price * product.percentSale) / 100));
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

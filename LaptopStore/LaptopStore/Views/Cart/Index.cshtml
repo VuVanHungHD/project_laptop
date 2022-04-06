@@ -32,7 +32,7 @@
                                         <input type="hidden" value="@c.Key.id" class="productId" />
                                     </td>
                                     <td class="shoping__cart__price">
-                                        @String.Format("{0:0,0 VNĐ}", @c.Key.price)
+                                        @String.Format("{0:0,0 VNĐ}", @c.Key.promotionPrice)
                                     </td>
 
                                     <td class="shoping__cart__quantity">
@@ -43,7 +43,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        @Html.Raw(@String.Format("{0:0,0 VNĐ}", c.Key.price * c.Value))
+                                        @Html.Raw(@String.Format("{0:0,0 VNĐ}", c.Key.promotionPrice * c.Value))
                                     </td>
 
                                     <td class="shoping__cart__item__close">

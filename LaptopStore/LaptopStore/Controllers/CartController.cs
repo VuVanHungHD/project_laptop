@@ -21,7 +21,7 @@ namespace LaptopStore.Controllers
                 {
                     var product = db.products.Where(p => p.id == c.Key).First();
                     cart.Add(product, c.Value);
-                    total += product.price * c.Value;
+                    total += product.promotionPrice * c.Value;
                 }
 
             }

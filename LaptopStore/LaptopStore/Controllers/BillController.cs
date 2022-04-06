@@ -35,7 +35,7 @@ namespace LaptopStore.Controllers
                 {
                     var product = db.products.Where(p => p.id == c.Key).First();
                     cart.Add(product, c.Value);
-                    total += product.price * c.Value;
+                    total += product.promotionPrice * c.Value;
                 }
             }
             ViewBag.cart = cart;
@@ -57,7 +57,7 @@ namespace LaptopStore.Controllers
                     bill = bill,
                     count = c.Value
                 });
-                total += product.price * c.Value;
+                total += product.promotionPrice * c.Value;
             }
             bill.total = total;
             bill.dateCreate = DateTime.Now;
@@ -80,7 +80,7 @@ namespace LaptopStore.Controllers
                 var productId = dt.productId;
                 var product = db.products.Find(productId);
                 billDetails.Add(product, dt.count);
-                total += product.price * dt.count;
+                total += product.promotionPrice * dt.count;
             }
             ViewBag.billDetails = billDetails;
             ViewBag.total = total;
