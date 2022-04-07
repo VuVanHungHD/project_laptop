@@ -60,7 +60,7 @@ namespace LaptopStore.Models
         public string cardVGA { get; set; }
         [DisplayName("Màn hình")]
 
-        [StringLength(10)]
+        [StringLength(250)]
         public string screenMonitor { get; set; }
         [DisplayName("Camera")]
 
