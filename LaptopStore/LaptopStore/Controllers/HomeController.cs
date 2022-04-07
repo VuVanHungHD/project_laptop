@@ -12,12 +12,12 @@ namespace LaptopStore.Controllers
         private LaptopStoreContext db = new LaptopStoreContext();
         public ActionResult Index()
         {
-            
             ViewBag.top6View = db.products.Where(p => p.status == "Còn hàng").OrderByDescending(p => p.viewCount).Take(6);
             ViewBag.top8New = db.products.Where(p => p.status == "Còn hàng").OrderByDescending(p => p.createDate).Take(8);
             ViewBag.top6InCate1 = db.products.Where(p => p.status == "Còn hàng" && p.categoryId == 1).OrderByDescending(p => p.id).Take(6).ToList();
             ViewBag.top6InCate2 = db.products.Where(p => p.status == "Còn hàng" && p.categoryId == 2).OrderByDescending(p => p.id).Take(6).ToList();
             ViewBag.top6InCate3 = db.products.Where(p => p.status == "Còn hàng" && p.categoryId == 1003).OrderByDescending(p => p.id).Take(6).ToList();
+            ViewBag.price15To20m = db.products.Where(p => p.status == "Còn hàng" && p.promotionPrice > 15000000 && p.promotionPrice < 20000000).OrderByDescending(p => p.promotionPrice).ToList();
             return View();
         }
 

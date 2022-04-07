@@ -39,8 +39,8 @@ namespace LaptopStore.Controllers
                         ViewBag.orderBy = "name";
                         break;
                     case "price":
-                        products = products.OrderByDescending(p => p.price);
-                        ViewBag.orderBy = "price";
+                        products = products.OrderByDescending(p => p.promotionPrice);
+                        ViewBag.orderBy = "promotionPrice";
                         break;
                     case "likeCount":
                         products = products.OrderByDescending(p => p.viewCount);
@@ -66,8 +66,8 @@ namespace LaptopStore.Controllers
                         ViewBag.orderBy = "name";
                         break;
                     case "price":
-                        products = products.OrderBy(p => p.price);
-                        ViewBag.orderBy = "price";
+                        products = products.OrderBy(p => p.promotionPrice);
+                        ViewBag.orderBy = "promotionPrice";
                         break;
                     case "likeCount":
                         products = products.OrderBy(p => p.viewCount);
@@ -115,6 +115,12 @@ namespace LaptopStore.Controllers
             lap.viewCount = lap.viewCount + 1;
             db.SaveChanges();
             return Json(new {status="succes" });
+        }
+
+        public ActionResult Watchlist(int? id)
+        {
+           
+            return View();
         }
 
         protected override void Dispose(bool disposing)

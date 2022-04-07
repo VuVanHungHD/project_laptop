@@ -5,19 +5,17 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.header__menu ul li:hover {
+    background-color: #007bff;
+}
 
 .header__menu ul li a {
-    color: #000000;
+    color: #ffffff;
 }
 
-/*.hero__categories__all {
-    background-color: #2b80dd;
+.header__menu ul li a:hover{
+    color:#FFFFFF
 }
-
-.site-btn {
-    background-color: #2b80dd;
-}*/
-
 .categories__slider .col-lg-3 {
     width: 200px;
 }
@@ -60,3 +58,4 @@ body {
         padding: 5px 5px;
         border: 1px solid;
     }
+
