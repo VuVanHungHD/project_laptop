@@ -1859,7 +1859,7 @@
     <Content Include="fonts\ElegantIcons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="images\commons\logo.png" />
+    <Content Include="images\commons\logo.PNG" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chart-area.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
