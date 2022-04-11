@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace LaptopStore.Controllers
                 ModelState.AddModelError("email", "Email đăng kí đã tồn tại!");
             }
 
-            if(!repeatPassword.Equals(user.password))
+            if (!repeatPassword.Equals(user.password))
             {
                 ModelState.AddModelError("password", "Mật khẩu và mật khẩu được nhập lại không giống nhau!");
             }
@@ -99,9 +100,9 @@ namespace LaptopStore.Controllers
             else
             {
                 var user = users[0];
-                if(verifyPassword(password, user.password))
+                if (verifyPassword(password, user.password))
                 {
-                    if(user.status != "Đang hoạt động")
+                    if (user.status != "Đang hoạt động")
                     {
                         ModelState.AddModelError("email", "Tài khoản này đã bị khóa!");
                         return View();
@@ -111,18 +112,18 @@ namespace LaptopStore.Controllers
                     if (user.userType == "ADMIN")
                     {
                         return Redirect("/Admin/Home/Index");
-                    } 
+                    }
                     else
                     {
                         return Redirect("/Home/Index");
-                    }    
+                    }
                 }
                 else
                 {
-                    
+
                     ModelState.AddModelError("password", "Mật khẩu sai!");
                     return View();
-                }    
+                }
             }
         }
 
@@ -135,7 +136,7 @@ namespace LaptopStore.Controllers
         public ActionResult Edit([Bind(Include = "id,username,email,phonenumber,address,password,userType,status")] User user, string oldPassword, string newPassword, string repeatNewPassword)
         {
             var users = db.users.AsNoTracking().Where(u => u.email == user.email).ToList();
-            if (users.Count() !=0 && users[0].id != user.id)
+            if (users.Count() != 0 && users[0].id != user.id)
             {
                 ModelState.AddModelError("email", "Email này đã được đăng kí!");
                 return RedirectToAction("Details", user);
@@ -151,7 +152,7 @@ namespace LaptopStore.Controllers
             {
                 //đổi pass
                 //check old pass
-                
+
                 if (verifyPassword(oldPassword, userInDB.password))
                 {
                     if (newPassword == repeatNewPassword)

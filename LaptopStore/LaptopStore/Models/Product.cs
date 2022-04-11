@@ -91,5 +91,8 @@ namespace LaptopStore.Models
         [DefaultValue("Còn hàng")]
         [DisplayName("Trạng thái")]
         public string status { get; set; }
+        [StringLength(100)]
+        [DisplayName("Bảo hành")]
+        public string warranty { get; set; }
     }
 }

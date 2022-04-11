@@ -15,6 +15,32 @@
                         <img class="product__details__pic__item--large"
                              src="@Model.imageUrl" alt="">
                     </div>
+
+                </div>
+                <div class="uu_dai">
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon_star"></i>
+                            <span>Chất lượng sản phẩm là hàng đầu</span>
+                        </li>
+                        <li>
+                            <i class="icon_star"></i>
+                            <span>Dùng test máy 15 ngày đầu lỗi 1 đổi 1</span>
+                        </li>
+                        <li>
+                            <i class="icon_star"></i>
+                            <span> Hỗ trợ và hậu mãi sau bán hàng tốt nhất</span>
+                        </li>
+                        <li>
+                            <i class="icon_star"></i>
+                            <span>  Trả góp lãi suất 0% qua thẻ visa</span>
+                        </li>
+                        <li>
+                            <i class="icon_star"></i>
+                            <span> Giao hàng toàn quốc nhanh nhất</span>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -38,28 +64,66 @@
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-
                                 <input type="text" value="1" id="countProduct">
                             </div>
+
                         </div>
                     </div>
                     <button type="submit" class="primary-btn" onclick="addItemIntoCart()">Thêm vào giỏ</button>
                     <a href="javascript:void(0)" class="heart-icon" onclick="view(@Model.id)"><span class="icon_heart_alt"></span></a>
-                    <p><b>Trạng thái</b> <span>@Model.status</span></p>
+                    <b>Lượt xem</b> <span>@Model.viewCount</span>
+                    <p>
+                        <b>Trạng thái</b> <span>@Model.status</span>
+                        <br />
+                        <b>Bảo hành</b> @Model.warranty
+                    </p>
 
-                    <ul class="info">
-                        Thông số kỹ thuật
-                        <li><b>CPU</b> <span>@Model.cpu</span></li>
-                        <li><b>RAM</b> <span>@Model.ram</span></li>
-                        <li><b>Ổ cứng</b> <span>@Model.hardDrive</span></li>
-                        <li><b>Card VGA</b> <span>@Model.cardVGA</span></li>
-                        <li><b>Màn hình</b> <span>@Model.screenMonitor</span></li>
-                        <li><b>Cổng kết nối</b> <span>@Model.connector</span></li>
-                        <li><b>Trọng lượng</b> <span>@Model.weight</span></li>
-                        <li><b>Pin</b> <span>@Model.battery</span></li>
-                        <li><b>Hệ điều hành</b> <span>@Model.operatingSystem</span></li>
+                    <div class="info">
+                        <h3>Thông số kỹ thuật</h3>
+                        <strong style="color:#2b80dd">@Model.name</strong>
+                        <table class="table table-striped table-bordered" style="height: 210px; float: left;" width="252">
+                            <tbody>
+                                <tr>
+                                    <td><b>CPU</b></td>
+                                    <td><span>@Model.cpu</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>RAM</b></td>
+                                    <td><span>@Model.ram</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ổ cứng</b></td>
+                                    <td><span>@Model.hardDrive</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Card VGA</b></td>
+                                    <td><span>@Model.cardVGA</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Màn hình</b></td>
+                                    <td><span>@Model.screenMonitor</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cổng kết nối</b></td>
+                                    <td><span>@Model.connector</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trọng lượng</b></td>
+                                    <td><span>@Model.weight</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pin</b></td>
+                                    <td><span>@Model.battery</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hệ điều hành</b></td>
+                                    <td><span>@Model.operatingSystem</span></td>
+                                </tr>
+                            </tbody>
 
-                    </ul>
+                        </table>
+
+                    </div>
 
                 </div>
             </div>
@@ -87,32 +151,33 @@
             <div class="col-lg-12">
                 <div class="section-title related__product__title">
                     <h2>Sản phẩm liên quan</h2>
+
                 </div>
             </div>
-        </div>
-        <div class="row">
-            @*@foreach(var p in ViewBag.relatedProducts)
-                {
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="@p.imageUrl">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">@p.name</a></h6>
-                                <h5>@p.price</h5>
+            <div class="row">
+
+                @*@foreach(var p in ViewBag.relatedProducts)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="@p.imageUrl">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="@Url.Action("Details", "Products", new { id = p.id})"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">@p.name</a></h6>
+                                    <h5>@p.price</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                }*@
+                    }*@
 
+            </div>
         </div>
-    </div>
 </section>
 <!-- Related Product Section End -->
 
