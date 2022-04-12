@@ -104,10 +104,10 @@ namespace LaptopStore.Controllers
                 return HttpNotFound();
             }
             var cmt = new User_Comment() { productId = product.id };
+            ViewBag.total = db.User_Comment.Where(c=>c.productId==id).OrderByDescending(c => c.datePost).ToList().Count();
             var viw = product.viewCount + 1;
             ViewBag.product = product;
             return View("Details", cmt);
-
         }
 
         // GET: Products/Details/5

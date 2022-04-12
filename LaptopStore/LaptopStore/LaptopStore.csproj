@@ -1846,11 +1846,16 @@
     <Content Include="Areas\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Areas\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Areas\Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Asset\._jquery.rateyo.css" />
+    <Content Include="Asset\._jquery.rateyo.js" />
+    <Content Include="Asset\._jquery.rateyo.min.css" />
+    <Content Include="Asset\._jquery.rateyo.min.js" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Client.css" />
     <Content Include="Content\elegant-icons.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery.rateyo.min.css" />
     <Content Include="Content\nice-select.css" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -3736,6 +3741,9 @@
     <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Index.cshtml" />
+    <Content Include="Asset\._jquery.rateyo.less" />
+    <Content Include="Asset\._jquery.rateyo.min.css.map" />
+    <Content Include="Asset\._jquery.rateyo.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
