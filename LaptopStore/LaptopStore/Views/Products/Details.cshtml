@@ -47,18 +47,18 @@
                 <div class="product__details__text">
                     <h3>@Model.name</h3>
                     <input type="hidden" value="@Model.id" id="idProduct">
-                    @*<div class="product__details__rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                                <span>(18 reviews)</span>
-                            </div>
-                        <div class="product__details__rating">
-                            <i class="fa fa-heart"></i>
-                            <span>@Model.viewCount views</span>
-                        </div>*@
+                    <div class="product__details__rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <span>(18 reviews)</span>
+                    </div>
+                    <div class="product__details__rating">
+                        <i class="fa fa-heart"></i>
+                        <span>@Model.viewCount views</span>
+                    </div>
                     <div class="product__details__price">@String.Format("{0:0,0 VNĐ}", @Model.promotionPrice)</div>
                     <div class="product__details__price"><x class="no_sale">@String.Format("{0:0,0}", Model.price) VNĐ</x></div>
                     <div class="product__details__quantity">
@@ -71,7 +71,6 @@
                     </div>
                     <button type="submit" class="primary-btn" onclick="addItemIntoCart()">Thêm vào giỏ</button>
                     <a href="javascript:void(0)" class="heart-icon" onclick="view(@Model.id)"><span class="icon_heart_alt"></span></a>
-                    <b>Lượt xem</b> <span>@Model.viewCount</span>
                     <p>
                         <b>Trạng thái</b> <span>@Model.status</span>
                         <br />
