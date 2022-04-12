@@ -166,6 +166,7 @@
     <Compile Include="Models\LaptopStoreContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\User_Comment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

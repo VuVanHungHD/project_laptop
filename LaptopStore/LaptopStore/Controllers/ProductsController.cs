@@ -25,7 +25,7 @@ namespace LaptopStore.Controllers
                 products = products.Where(p => p.name.Contains(search) || p.content.Contains(search));
             }
 
-            if(!String.IsNullOrEmpty(orderType) && orderType == "DESC")
+            if (!String.IsNullOrEmpty(orderType) && orderType == "DESC")
             {
                 ViewBag.orderType = "DESC";
                 switch (orderBy)
@@ -78,7 +78,7 @@ namespace LaptopStore.Controllers
                         ViewBag.orderBy = "id";
                         break;
                 }
-            }    
+            }
 
             int pageNumber = (page ?? 1);
             int pageSize = (size ?? 12);
@@ -97,15 +97,17 @@ namespace LaptopStore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.products.Include(p => p.category).Where(p => p.id == id).FirstOrDefault();
+            var product = db.products.Find(id);
+
             if (product == null)
             {
                 return HttpNotFound();
             }
+            var cmt = new User_Comment() { productId = product.id };
             var viw = product.viewCount + 1;
-            //ViewBag.relatedProducts = db.products.Where(p => p.status == "Còn hàng" && p.category.id == product.category.id).Take(8).ToList();
+            ViewBag.product = product;
+            return View("Details", cmt);
 
-            return View(product);
         }
 
         // GET: Products/Details/5
@@ -114,15 +116,28 @@ namespace LaptopStore.Controllers
             var lap = db.products.Find(id);
             lap.viewCount = lap.viewCount + 1;
             db.SaveChanges();
-            return Json(new {status="succes" });
+            return Json(new { status = "succes" });
         }
 
         public ActionResult Watchlist(int? id)
         {
-           
+
             return View();
         }
 
+        [HttpPost]
+        public ActionResult SendComment(User_Comment comment)
+        {
+            var userId = (int)Session["USER"];
+            comment.datePost = DateTime.Now;
+            comment.userId = db.users.Single(u => u.id.Equals(userId)).id;
+            db.User_Comment.Add(comment);
+            db.SaveChanges();
+            return RedirectToAction("Details", "Products", new
+            {
+                id = comment.productId
+            });
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

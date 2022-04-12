@@ -40,7 +40,8 @@ namespace LaptopStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.products.Include(p => p.category).Where(p => p.id == id).First();
+            Product product = db.products.Include(p => p.categoryId).Where(p => p.id == id).First();
+            ViewBag.comment = db.User_Comment.Where(p => p.productId == id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -139,7 +140,7 @@ namespace LaptopStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.products.Include(p => p.category).Where(p => p.id == id).First();
+            Product product = db.products.Include(p => p.categoryId).Where(p => p.id == id).First();
             if (product == null)
             {
                 return HttpNotFound();

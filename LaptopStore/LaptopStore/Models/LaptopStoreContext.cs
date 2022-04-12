@@ -15,8 +15,9 @@ namespace LaptopStore.Models
         }
 
         public DbSet<Category> categories { get; set; }
-        public DbSet<Product> products { get; set; }
-        public DbSet<User> users { get; set; }
+        public virtual DbSet<Product> products { get; set; }
+        public virtual DbSet<User> users { get; set; }
+        public virtual DbSet<User_Comment> User_Comment { get; set; }
         public DbSet<Bill> bills { get; set; }
         public DbSet<BillDetail> billDetails { get; set; }
 

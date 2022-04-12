@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-
-namespace LaptopStore.Models
+﻿namespace LaptopStore.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
     [Table("Product")]
     public partial class Product
     {
+
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [DisplayName("Mã sản phẩm")]
@@ -94,5 +94,7 @@ namespace LaptopStore.Models
         [StringLength(100)]
         [DisplayName("Bảo hành")]
         public string warranty { get; set; }
+
+        public virtual ICollection<User_Comment> User_Comment { get; set; }
     }
 }
