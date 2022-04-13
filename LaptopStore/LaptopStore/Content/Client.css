@@ -13,9 +13,10 @@ body {
     color: #ffffff;
 }
 
-.header__menu ul li a:hover{
-    color:#FFFFFF
-}
+    .header__menu ul li a:hover {
+        color: #FFFFFF
+    }
+
 .categories__slider .col-lg-3 {
     width: 200px;
 }
@@ -60,7 +61,6 @@ body {
     }
 
 #uu_dai {
-   
 }
 
 #uu_dai {
@@ -68,13 +68,12 @@ body {
     padding: 12px 8px;
     margin: 10px 0;
 }
-.cmt{
-    height:50px;
+
+.cmt {
+    height: 50px;
 }
+
     .cmt .username {
         width: 150px;
         height: 50px;
-    }
-    .cmt .username .st {
-        width:5px;
     }

@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <script src="https://kit.fontawesome.com/eab1401f67.js" crossorigin="anonymous"></script>
+    @*<script src="https://kit.fontawesome.com/eab1401f67.js" crossorigin="anonymous"></script>*@
 
 
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" type="text/css">
@@ -293,22 +293,24 @@
     <script src="~/Scripts/mixitup.min.js"></script>
     <script src="~/Scripts/owl.carousel.min.js"></script>
     <script src="~/Scripts/main.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    @*<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>*@
     <script src="~/vendor/jquery/jquery.js"></script>
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script>
         $(".ratingStar").hover(function () {
-            $(".ratingStar").addClass("far").removeClass("fas");
+            $(".ratingStar").addClass("fa-star-o").removeClass("fa-star");
 
-            $(this).addClass("fas").removeClass("far");
-            $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+            $(this).addClass("fa-star").removeClass("fa-star-o");
+            $(this).prevAll(".ratingStar").addClass("fa-star").removeClass("fa-star-o");
 
             var starValue = $(this).attr("data-value");
             $("#ratingValue").val(starValue);
             $("#rating").val(starValue);
         });
         $("#ratingValue").val("1");
+
         $("#rating").val("1");
+
         $(".ratingStar").click(function () {
             var starValue = $(this).attr("data-value");
             $("#ratingValue").val(starValue);

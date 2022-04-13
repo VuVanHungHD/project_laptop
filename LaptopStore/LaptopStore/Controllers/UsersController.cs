@@ -111,6 +111,7 @@ namespace LaptopStore.Controllers
                     Session["USER_NAME"] = user.username;
                     if (user.userType == "ADMIN")
                     {
+                        ViewBag.admin = user.id;
                         return Redirect("/Admin/Home/Index");
                     }
                     else

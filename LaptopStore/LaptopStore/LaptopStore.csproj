@@ -145,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\User_CommentController.cs" />
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -3575,6 +3576,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\User_Comment\" />
     <Folder Include="images\pictures\" />
   </ItemGroup>
   <ItemGroup>

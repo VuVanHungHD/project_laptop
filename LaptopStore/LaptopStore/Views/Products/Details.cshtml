@@ -19,7 +19,6 @@
                 </div>
                 <div class="uu_dai">
                     <ul class="list-unstyled">
-
                         <li>
                             <i class="icon_star"></i>
                             <span>Chất lượng sản phẩm là hàng đầu</span>
@@ -48,11 +47,8 @@
                 <div class="product__details__text">
                     <h3>@ViewBag.product.name</h3>
                     <span class="text-warning">
-                        <i class="ratingStar fa fa-star-o"></i>
-                        <i class="ratingStar fa fa-star-o"></i>
-                        <i class="ratingStar fa fa-star-o"></i>
-                        <i class="ratingStar fa fa-star-o"></i>
-                        <i class="ratingStar fa fa-star-o"></i>>
+                        @ViewBag.rateComment <i class="fa fa-star"></i> ( @ViewBag.total lượt bình chọn)
+
                     </span>
                     <div class="product__details__rating">
                         <i class="fa fa-eye"></i>
@@ -152,27 +148,53 @@
                     <h8 style="float:left"> @ViewBag.total bình luận</h8>
 
                     <br /><br /><br />
-                    @foreach (var cmt in ViewBag.product.User_Comment)
+
+                    @if ("ADMIN".Equals(ViewBag.add))
                     {
-                        <table class="table table-bordered cmt" style="height: auto; float: left;" width="252">
-                            <tbody>
-                                <tr>
-                                    <td class="username">
-                                        <b>@cmt.User.username</b>
-                                        <br />
-                                        <span class="text-warning">
-                                            @for (int i = 0; i < @cmt.rating; i++)
-                                            {
-                                                <i class="st fas fa-star"></i>
-                                            }
-
-                                        </span>
-                                    </td>
-                                    <td align="left">@cmt.content</td>
-                                </tr>
-                            </tbody>
-
-                        </table>
+                        foreach (var cmt in ViewBag.product.User_Comment)
+                        {
+                            <table class="table table-bordered cmt" style="height: auto; float: left;" width="252">
+                                <tbody>
+                                    <tr>
+                                        <td class="username">
+                                            <b>@cmt.User.username</b>
+                                            <br />
+                                            <span class="text-warning">
+                                                @for (int i = 0; i < @cmt.rating; i++)
+                                                {
+                                                    <i class="fa fa-star "></i>
+                                                }
+                                            </span>
+                                        </td>
+                                        <td align="left">@cmt.content</td>
+                                        <td>  <div><button class="btn btn-danger m-1" onclick="deleteComment(@cmt.id, '@cmt.User.username')">Xóa</button></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        }
+                    }
+                    else
+                    {
+                        foreach (var cmt in ViewBag.product.User_Comment)
+                        {
+                            <table class="table table-bordered cmt" style="height: auto; float: left;" width="252">
+                                <tbody>
+                                    <tr>
+                                        <td class="username">
+                                            <b>@cmt.User.username</b>
+                                            <br />
+                                            <span class="text-warning">
+                                                @for (int i = 0; i < @cmt.rating; i++)
+                                                {
+                                                    <i class="fa fa-star "></i>
+                                                }
+                                            </span>
+                                        </td>
+                                        <td align="left">@cmt.content</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        }
                     }
 
                     @if (Session["USER"] == null)
@@ -189,11 +211,11 @@
                                     <td valign="top">Bình luận</td>
                                     <td>
                                         <span class="text-warning">
-                                            <i class="ratingStar fas fa-star" data-value="1"></i>
-                                            <i class="ratingStar far fa-star" data-value="2"></i>
-                                            <i class="ratingStar far fa-star" data-value="3"></i>
-                                            <i class="ratingStar far fa-star" data-value="4"></i>
-                                            <i class="ratingStar far fa-star" data-value="5"></i>
+                                            <i class="ratingStar fa fa-star-o" data-value="1"></i>
+                                            <i class="ratingStar fa fa-star-o" data-value="2"></i>
+                                            <i class="ratingStar fa fa-star-o" data-value="3"></i>
+                                            <i class="ratingStar fa fa-star-o" data-value="4"></i>
+                                            <i class="ratingStar fa fa-star-o" data-value="5"></i>
                                         </span>
                                         <input type="hidden" name="rating" id="ratingValue" />
                                     </td>
@@ -250,4 +272,19 @@
         console.log(id, count);
         addCart(id, count);
     };
+    function deleteComment(id, name) {
+        var deleteConfirm = confirm("Xác nhận xóa bình luận của: " + name + "?");
+
+        if (deleteConfirm) {
+            var formData = new FormData();
+            formData.append("id", id);
+            fetch("@Url.Action("Delete", "Products")", {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                window.location.replace("@Url.Action("Details", "Products")");
+            });
+        }
+    };
+
 </script>

@@ -103,8 +103,18 @@ namespace LaptopStore.Controllers
             {
                 return HttpNotFound();
             }
+            var users = db.users.Find(Session["USER"]);
+
+           if(users!= null)
+            {
+                ViewBag.add = users.userType.ToString();
+            }    
             var cmt = new User_Comment() { productId = product.id };
-            ViewBag.total = db.User_Comment.Where(c=>c.productId==id).OrderByDescending(c => c.datePost).ToList().Count();
+            var total= db.User_Comment.Where(c => c.productId == id).OrderByDescending(c => c.datePost).ToList().Count();
+            ViewBag.total = total;
+            var countComment = db.User_Comment.Where(c => c.productId == id).Sum(c => c.rating);
+            float rateComment = (float)(countComment / total);
+            ViewBag.rateComment = rateComment;
             var viw = product.viewCount + 1;
             ViewBag.product = product;
             return View("Details", cmt);
@@ -140,6 +150,15 @@ namespace LaptopStore.Controllers
                 id = comment.productId
             });
         }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            User_Comment cmt = db.User_Comment.Find(id);
+            db.User_Comment.Remove(cmt);
+            db.SaveChanges();
+            return Json(new { status = "success" });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
