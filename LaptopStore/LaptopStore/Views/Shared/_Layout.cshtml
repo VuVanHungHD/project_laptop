@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+    <script src="https://kit.fontawesome.com/eab1401f67.js" crossorigin="anonymous"></script>
+
+
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/elegant-icons.css" type="text/css">
@@ -35,7 +38,7 @@
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="@Url.Action("Index", "Home")">
-                <img src="~/images/commons/logo.PNG" alt="Logo"/>
+                <img src="~/images/commons/logo.PNG" alt="Logo" />
             </a>
         </div>
         <div class="humberger__menu__cart">
@@ -290,9 +293,27 @@
     <script src="~/Scripts/mixitup.min.js"></script>
     <script src="~/Scripts/owl.carousel.min.js"></script>
     <script src="~/Scripts/main.js"></script>
-
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="~/vendor/jquery/jquery.js"></script>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
     <script>
+        $(".ratingStar").hover(function () {
+            $(".ratingStar").addClass("far").removeClass("fas");
+
+            $(this).addClass("fas").removeClass("far");
+            $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+
+            var starValue = $(this).attr("data-value");
+            $("#ratingValue").val(starValue);
+            $("#rating").val(starValue);
+        });
+        $("#ratingValue").val("1");
+        $("#rating").val("1");
+        $(".ratingStar").click(function () {
+            var starValue = $(this).attr("data-value");
+            $("#ratingValue").val(starValue);
+            $("#rating").val(starValue);
+        });
     function addCart(id, count) {
         const formData = new FormData();
         formData.append("idProduct", id);
@@ -313,6 +334,7 @@
         }).then(() => {
         });
         }
+
 
     </script>
     @*<script>

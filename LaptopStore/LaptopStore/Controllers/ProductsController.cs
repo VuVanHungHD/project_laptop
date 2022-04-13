@@ -126,11 +126,13 @@ namespace LaptopStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult SendComment(User_Comment comment)
+        public ActionResult SendComment(User_Comment comment,int rating)
         {
+
             var userId = (int)Session["USER"];
             comment.datePost = DateTime.Now;
             comment.userId = db.users.Single(u => u.id.Equals(userId)).id;
+            comment.rating = rating;
             db.User_Comment.Add(comment);
             db.SaveChanges();
             return RedirectToAction("Details", "Products", new
