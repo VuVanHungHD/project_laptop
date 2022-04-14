@@ -171,6 +171,81 @@ namespace LaptopStore.Controllers
             return Json(new { status = "success" });
         }
 
+
+        // GET: Products
+        public ActionResult Search(string search, int? page, int? size, string orderBy, string orderType)
+        {
+            var products = db.products.Include(p => p.category);
+            if (!String.IsNullOrEmpty(search))
+            {
+                ViewBag.search = search;
+                products = products.Where(p => p.name.Contains(search) || p.content.Contains(search));
+            }
+
+            if (!String.IsNullOrEmpty(orderType) && orderType == "DESC")
+            {
+                ViewBag.orderType = "DESC";
+                switch (orderBy)
+                {
+                    case "id":
+                        products = products.OrderByDescending(p => p.id).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "id";
+                        break;
+                    case "name":
+                        products = products.OrderByDescending(p => p.name).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "name";
+                        break;
+                    case "price":
+                        products = products.OrderByDescending(p => p.promotionPrice).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "promotionPrice";
+                        break;
+                    case "likeCount":
+                        products = products.OrderByDescending(p => p.viewCount).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "likeCount";
+                        break;
+                    default:
+                        products = products.OrderByDescending(p => p.id).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "id";
+                        break;
+                }
+            }
+            else
+            {
+                ViewBag.orderType = "ASC";
+                switch (orderBy)
+                {
+                    case "id":
+                        products = products.OrderBy(p => p.id).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "id";
+                        break;
+                    case "name":
+                        products = products.OrderBy(p => p.name).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "name";
+                        break;
+                    case "price":
+                        products = products.OrderBy(p => p.promotionPrice).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "promotionPrice";
+                        break;
+                    case "likeCount":
+                        products = products.OrderBy(p => p.viewCount).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "likeCount";
+                        break;
+                    default:
+                        products = products.OrderBy(p => p.id).Where(p => p.name.Contains(search));
+                        ViewBag.orderBy = "id";
+                        break;
+                }
+            }
+
+            int pageNumber = (page ?? 1);
+            int pageSize = (size ?? 12);
+            ViewBag.size = pageSize;
+
+            return View(products.ToPagedList(pageNumber, pageSize));
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

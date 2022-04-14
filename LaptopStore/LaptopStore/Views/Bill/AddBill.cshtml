@@ -1,4 +1,4 @@
-﻿
+﻿@model LaptopStore.Models.BillDetail
 @{
     ViewBag.Title = "Thanh toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,64 +7,68 @@
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
     <div class="container">
+        @using (Html.BeginForm("SaveBill", "Bill", FormMethod.Post))
+        {
+            <div class="checkout__form">
+                <h4>Chi tiết hóa đơn thanh toán</h4>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="checkout__input">
+                                <p>Họ tên<span>*</span></p>
+                                <input type="text" value="@ViewBag.user.username">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Địa chỉ<span>*</span></p>
+                                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" , @Value = @ViewBag.user.address } })
+                                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                            </div>
 
-        <div class="checkout__form">
-            <h4>Chi tiết hóa đơn thanh toán</h4>
-            <form action="#">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <div class="checkout__input">
-                            <p>Họ tên<span>*</span></p>
-                            <input type="text" value="@ViewBag.user.username">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Địa chỉ<span>*</span></p>
-                            <input type="text" placeholder="Địa chỉ" class="checkout__input__add" value="@ViewBag.user.address">
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Số điện thoại<span>*</span></p>
-                                    <input type="tel" value="@ViewBag.user.phonenumber">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Số điện thoại<span>*</span></p>
+                                        <input type="tel" value="@ViewBag.user.phonenumber">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <input type="email" value="@ViewBag.user.email">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Email<span>*</span></p>
-                                    <input type="email" value="@ViewBag.user.email">
-                                </div>
-                            </div>
+
+                            @*<div class="checkout__input">
+                                    <p>Ghi chú<span>*</span></p>
+                                    <input type="text"
+                                           placeholder="Notes about your order, e.g. special notes for delivery.">
+                                </div>*@
                         </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Đơn hàng của bạn</h4>
+                                <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
+                                <ul>
+                                    @foreach (var c in ViewBag.cart)
+                                    {
+                                        <li>@c.Key.name (x @c.Value)<span>@Html.Raw(c.Key.promotionPrice * c.Value)</span></li>
+                                    }
 
-                        @*<div class="checkout__input">
-                            <p>Ghi chú<span>*</span></p>
-                            <input type="text"
-                                   placeholder="Notes about your order, e.g. special notes for delivery.">
-                        </div>*@
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="checkout__order">
-                            <h4>Đơn hàng của bạn</h4>
-                            <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
-                            <ul>
-                                @foreach (var c in ViewBag.cart)
-                                {
-                                    <li>@c.Key.name (x @c.Value)<span>@Html.Raw(c.Key.promotionPrice * c.Value)</span></li>
-                                }
-
-                            </ul>
-                            <div class="checkout__order__total">Tổng tiền <span>@ViewBag.total</span></div>
-                            @*@using (Html.BeginForm("SaveBill", "Bill", FormMethod.Post))
-                            {
+                                </ul>
+                                <div class="checkout__order__total">Tổng tiền <span>@ViewBag.total</span></div>
+                                @*@using (Html.BeginForm("SaveBill", "Bill", FormMethod.Post))
+                                    {
+                                        <button type="submit" class="site-btn">Đặt hàng</button>
+                                    }*@
                                 <button type="submit" class="site-btn">Đặt hàng</button>
-                            }*@
-                            <a href="@Url.Action("SaveBill", "Bill")" class="site-btn">Đặt hàng</a>
+                                @*<a href="@Url.Action("SaveBill", "Bill")" class="site-btn">Đặt hàng</a>*@
                             </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        }
     </div>
 </section>
 <!-- Checkout Section End -->

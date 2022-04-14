@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace LaptopStore.Controllers
 {
@@ -22,7 +23,7 @@ namespace LaptopStore.Controllers
         {
             ViewBag.category = db.categories.Find(id);
             ViewBag.categoriesChild = db.categories.Where(c => c.parentId == id).ToList();
-            ViewBag.product = db.products.Where(p => p.categoryId == id).ToList();
+            ViewBag.product = db.products.Where(p => p.categoryId == id).OrderByDescending(p=>p.promotionPrice).ToList();
             return View();
         }
     }

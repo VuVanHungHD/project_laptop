@@ -16,7 +16,7 @@ namespace LaptopStore.Models
         [DisplayName("Mã đơn hàng")]
         public int id { get; set; }
 
-        public User user { get; set; }
+        public virtual User user { get; set; }
         [Required(ErrorMessage = "Người đặt hàng không được trống")]
         [DisplayName("Người đặt hàng")]
         public int userId { get; set; }

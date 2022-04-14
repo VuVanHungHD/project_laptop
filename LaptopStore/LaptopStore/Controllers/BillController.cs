@@ -43,7 +43,7 @@ namespace LaptopStore.Controllers
             return View();
         }
 
-        public ActionResult SaveBill()
+        public ActionResult SaveBill([Bind(Include = "address")] BillDetail billDetail)
         {
             var bill = new Bill();
             bill.userId = (int)Session["USER"];
@@ -51,12 +51,10 @@ namespace LaptopStore.Controllers
             foreach (var c in (Dictionary<int, int>)Session["CART"])
             {
                 var product = db.products.Where(p => p.id == c.Key).First();
-                db.billDetails.Add(new BillDetail()
-                {
-                    product = product,
-                    bill = bill,
-                    count = c.Value
-                });
+                billDetail.product = product;
+                billDetail.bill = bill;
+                billDetail.count = c.Value;
+                db.billDetails.Add(billDetail);
                 total += product.promotionPrice * c.Value;
             }
             bill.total = total;
@@ -68,7 +66,18 @@ namespace LaptopStore.Controllers
 
             return Redirect("/Bill/Index");
         }
+        //public ActionResult Create([Bind(Include = "id,name,content,author")] BillDetail btll)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        blog.dateCreate = DateTime.Now;
+        //        db.Blogs.Add(blog);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
+        //    return View(blog);
+        //}
         public ActionResult Details(int id)
         {
             ViewBag.bill = db.bills.Find(id);

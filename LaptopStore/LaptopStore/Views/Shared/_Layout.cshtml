@@ -191,7 +191,7 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+                            @using (Html.BeginForm("Search", "Products", FormMethod.Get))
                             {
                                 @Html.TextBox("search", ViewBag.search as string, new { @placeholder = "Tìm kiếm gì đó..." })
                                 <button type="submit" class="site-btn">Tìm kiếm</button>

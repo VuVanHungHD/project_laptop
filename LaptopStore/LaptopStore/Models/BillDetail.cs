@@ -25,5 +25,8 @@ namespace LaptopStore.Models
 
         [DefaultValue(0)]
         public int count { get; set; }
+        [StringLength(300)]
+        [Required(ErrorMessage = "Địa chỉ không được để trống!")]
+        public string address { get; set; }
     }
 }
