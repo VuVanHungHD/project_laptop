@@ -13,13 +13,13 @@
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
                                 <ul class="featured__item__pic__hover">
-                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
+                                    @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
                                     <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="featured__item__text">
-                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})">@p.shortDescript</a></h7>
+                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)">@p.shortDescript</a></h7>
                                 <h5 class="sz1">
                                     <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
                                     <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
@@ -43,7 +43,6 @@
                         <a href="@Url.Action("Index", "Products")">Sản phẩm mới</a>
 
                     </h2>
-                    <span style="align-content:flex-start;"><a href="">10-15 triệu</a></span>
                 </div>
             </div>
         </div>
@@ -55,7 +54,7 @@
                         <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>
+                                @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
                                 <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
@@ -77,158 +76,308 @@
 <!-- Latest Product Section Begin -->
 
 <section class="latest-product spad">
-    @*<div class="container">
+
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="latest-product__text">
-                    <h4><a href="@Url.Action("Details", "Category", new {id=1})">Tranh thêu phong cảnh</a></h4>
-                    <div class="latest-product__slider owl-carousel">
-                        <div class="latest-prdouct__slider__item">
-                            @for (var i = 0; i < 4; i++)
-                            {
-                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate1[i].id})" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="@ViewBag.top6InCate1[i].imageUrl" alt="">
-
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
-                                        <p>
-                                            <h7 class="sz1">
-                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].promotionPrice)</em>
-                                            </h7>
-                                            <h8><x class="no_sale">@String.Format("{0:0,0}",ViewBag.top6InCate1[i].price) </x></h8>
-                                        </p>
-                                    </div>
-
-                                </a>
-
-                            }
-
-                        </div>
-                        <div class="latest-prdouct__slider__item">
-                            @for (var i = 3; i < 6; i++)
-                            {
-                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate1[i].id})" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="@ViewBag.top6InCate1[i].imageUrl" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
-                                        <p>
-                                            <h7 class="sz1">
-                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].promotionPrice)</em>
-                                            </h7>
-                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].price) </x></h8>
-                                        </p>
-                                    </div>
-                                </a>
-
-                            }
+            <div class="section-title">
+                <h2><a href="@Url.Action("Details", "Category", new { id = 1007})">DELL GAMING</a></h2>
+            </div>
+            <div class="categories__slider owl-carousel">
+                @foreach (var p in ViewBag.top6NewDell)
+                {
+                    <div class="bord_slide">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
+                                    @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
+                                    <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)">@p.shortDescript</a></h7>
+                                <h5 class="sz1">
+                                    <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                    <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="latest-product__text">
-                    <h4>Tranh thêu Hà Nội</h4>
-                    <div class="latest-product__slider owl-carousel">
-                        <div class="latest-prdouct__slider__item">
-                            @for (var i = 0; i < 3; i++)
-                            {
-                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate2[i].id})" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="@ViewBag.top6InCate2[i].imageUrl" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
-                                        <p>
-                                            <h7 class="sz1">
-                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].promotionPrice)</em>
-                                            </h7>
-                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].price)</x></h8>
-                                        </p>
-                                    </div>
-                                </a>
-
-                            }
-
-                        </div>
-                        <div class="latest-prdouct__slider__item">
-                            @for (var i = 3; i < 6; i++)
-                            {
-                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate2[i].id})" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="@ViewBag.top6InCate2[i].imageUrl" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
-                                        <p>
-                                            <h7 class="sz1">
-                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].promotionPrice)</em>
-                                            </h7>
-                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].price)</x></h8>
-                                        </p>
-                                    </div>
-                                </a>
-
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="latest-product__text">
-                    <h4>Tranh thêu hoa</h4>
-                    <div class="latest-product__slider owl-carousel">
-                        <div class="latest-prdouct__slider__item">
-                            @for (var i = 0; i < 3; i++)
-                            {
-                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate3[i].id})" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="@ViewBag.top6InCate3[i].imageUrl" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
-                                        <p>
-                                            <h7 class="sz1">
-                                                <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].promotionPrice)</em>
-                                            </h7>
-                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].price)</x></h8>
-                                        </p>
-                                    </div>
-                                </a>
-
-                            }
-
-                        </div>
-                        <div class="latest-prdouct__slider__item">
-                            @for (var i = 3; i < 6; i++)
-                            {
-                                <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate3[i].id})" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="@ViewBag.top6InCate3[i].imageUrl" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
-                                        <p>
-                                            <h7 class="sz1">
-                                                <em class="sale">@String.Format("{0:0,0}",  @ViewBag.top6InCate3[i].promotionPrice)</em>
-                                            </h7>
-                                            <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].price)</x></h8>
-                                        </p>
-                                    </div>
-                                </a>
-
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>*@
+        <br />
+        <div class="row">
+            <div class="section-title">
+                <h2><a href="@Url.Action("Details", "Category", new { id = 1008})">MSI GAMING</a></h2>
+            </div>
+            <div class="categories__slider owl-carousel">
+                @foreach (var p in ViewBag.top6NewMsi)
+                {
+                    <div class="bord_slide">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
+                                    @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
+                                    <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)">@p.shortDescript</a></h7>
+                                <h5 class="sz1">
+                                    <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                    <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="section-title">
+                <h2><a href="@Url.Action("Details", "Category", new { id = 1009})">HP GAMING</a></h2>
+            </div>
+            <div class="categories__slider owl-carousel">
+                @foreach (var p in ViewBag.top6NewHp)
+                {
+                    <div class="bord_slide">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
+                                    @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
+                                    <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)">@p.shortDescript</a></h7>
+                                <h5 class="sz1">
+                                    <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                    <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="section-title">
+                <h2><a href="@Url.Action("Details", "Category", new { id = 1011})">ASUS GAMING</a></h2>
+            </div>
+            <div class="categories__slider owl-carousel">
+                @foreach (var p in ViewBag.top6NewAsus)
+                {
+                    <div class="bord_slide">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
+                                    @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
+                                    <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)">@p.shortDescript</a></h7>
+                                <h5 class="sz1">
+                                    <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                    <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="section-title">
+                <h2><a href="@Url.Action("Details", "Category", new { id = 1012})">ACER GAMING</a></h2>
+            </div>
+            <div class="categories__slider owl-carousel">
+                @foreach (var p in ViewBag.top6NewAcer)
+                {
+                    <div class="bord_slide">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="@p.imageUrl">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)"><i class="fa fa-eye"></i></a></li>
+                                    @*<li><a href="javascript:void(0);" onclick="view(@p.id)"><i class="fa fa-heart"></i></a></li>*@
+                                    <li><a href="javascript:void(0);" onclick="addCart(@p.id, 1)"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h7><a href="@Url.Action("Details", "Products", new { id = p.id})" onclick="view(@p.id)">@p.shortDescript</a></h7>
+                                <h5 class="sz1">
+                                    <em class="sale">@String.Format("{0:0,0}", @p.promotionPrice)</em>
+                                    <x class="no_sale">@String.Format("{0:0,0}", @p.price) </x>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+
+    @*<div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4><a href="@Url.Action("Details", "Category", new {id=1})">Tranh thêu phong cảnh</a></h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                @for (var i = 0; i < 4; i++)
+                                {
+                                    <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate1[i].id})" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="@ViewBag.top6InCate1[i].imageUrl" alt="">
+
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
+                                            <p>
+                                                <h7 class="sz1">
+                                                    <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].promotionPrice)</em>
+                                                </h7>
+                                                <h8><x class="no_sale">@String.Format("{0:0,0}",ViewBag.top6InCate1[i].price) </x></h8>
+                                            </p>
+                                        </div>
+
+                                    </a>
+
+                                }
+
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                @for (var i = 3; i < 6; i++)
+                                {
+                                    <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate1[i].id})" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="@ViewBag.top6InCate1[i].imageUrl" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h7>@ViewBag.top6InCate1[i].shortDescript</h7>
+                                            <p>
+                                                <h7 class="sz1">
+                                                    <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].promotionPrice)</em>
+                                                </h7>
+                                                <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate1[i].price) </x></h8>
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Tranh thêu Hà Nội</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                @for (var i = 0; i < 3; i++)
+                                {
+                                    <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate2[i].id})" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="@ViewBag.top6InCate2[i].imageUrl" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
+                                            <p>
+                                                <h7 class="sz1">
+                                                    <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].promotionPrice)</em>
+                                                </h7>
+                                                <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].price)</x></h8>
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                }
+
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                @for (var i = 3; i < 6; i++)
+                                {
+                                    <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate2[i].id})" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="@ViewBag.top6InCate2[i].imageUrl" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
+                                            <p>
+                                                <h7 class="sz1">
+                                                    <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].promotionPrice)</em>
+                                                </h7>
+                                                <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate2[i].price)</x></h8>
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Tranh thêu hoa</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                @for (var i = 0; i < 3; i++)
+                                {
+                                    <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate3[i].id})" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="@ViewBag.top6InCate3[i].imageUrl" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
+                                            <p>
+                                                <h7 class="sz1">
+                                                    <em class="sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].promotionPrice)</em>
+                                                </h7>
+                                                <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].price)</x></h8>
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                }
+
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                @for (var i = 3; i < 6; i++)
+                                {
+                                    <a href="@Url.Action("Details", "Products", new { id = ViewBag.top6InCate3[i].id})" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="@ViewBag.top6InCate3[i].imageUrl" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h7>@ViewBag.top6InCate2[i].shortDescript</h7>
+                                            <p>
+                                                <h7 class="sz1">
+                                                    <em class="sale">@String.Format("{0:0,0}",  @ViewBag.top6InCate3[i].promotionPrice)</em>
+                                                </h7>
+                                                <h8><x class="no_sale">@String.Format("{0:0,0}", @ViewBag.top6InCate3[i].price)</x></h8>
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
 </section>
 <!-- Latest Product Section End -->

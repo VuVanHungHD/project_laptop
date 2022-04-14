@@ -105,16 +105,28 @@ namespace LaptopStore.Controllers
             }
             var users = db.users.Find(Session["USER"]);
 
-           if(users!= null)
+            if (users != null)
             {
                 ViewBag.add = users.userType.ToString();
-            }    
+            }
             var cmt = new User_Comment() { productId = product.id };
-            var total= db.User_Comment.Where(c => c.productId == id).OrderByDescending(c => c.datePost).ToList().Count();
+            var total = db.User_Comment.Where(c => c.productId == id).OrderByDescending(c => c.datePost).ToList().Count();
             ViewBag.total = total;
-            var countComment = db.User_Comment.Where(c => c.productId == id).Sum(c => c.rating);
-            float rateComment = (float)(countComment / total);
+            int countComment;
+            if (total == 0)
+            {
+                countComment = 0;
+            }
+            else
+            {
+                countComment = db.User_Comment.Where(c => c.productId == id).Sum(c => c.rating);
+            }
+
+            int rateComment = (countComment / total);
+            float discount = (float)(countComment % total);
+
             ViewBag.rateComment = rateComment;
+            ViewBag.discount = discount;
             var viw = product.viewCount + 1;
             ViewBag.product = product;
             return View("Details", cmt);
@@ -136,7 +148,7 @@ namespace LaptopStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult SendComment(User_Comment comment,int rating)
+        public ActionResult SendComment(User_Comment comment, int rating)
         {
 
             var userId = (int)Session["USER"];

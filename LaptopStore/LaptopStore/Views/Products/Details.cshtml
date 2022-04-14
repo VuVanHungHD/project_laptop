@@ -18,7 +18,7 @@
 
                 </div>
                 <div class="uu_dai">
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled text-warning">
                         <li>
                             <i class="icon_star"></i>
                             <span>Chất lượng sản phẩm là hàng đầu</span>
@@ -47,7 +47,22 @@
                 <div class="product__details__text">
                     <h3>@ViewBag.product.name</h3>
                     <span class="text-warning">
-                        @ViewBag.rateComment <i class="fa fa-star"></i> ( @ViewBag.total lượt bình chọn)
+                        @for (int i = 0; i < ViewBag.rateComment; i++)
+                        {
+                            <i class="fa fa-star "></i>
+                        }
+                        @if (ViewBag.discount > 0)
+                        {
+                            <i class="fa fa-star-half "></i>
+                        }
+                        @if (ViewBag.total == 0)
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                <i class="fa fa-star-o "></i>
+                            }
+                        }
+                        ( @ViewBag.total lượt bình chọn)
 
                     </span>
                     <div class="product__details__rating">
@@ -65,7 +80,7 @@
                         </div>
                     </div>
                     <button type="submit" class="primary-btn" onclick="addItemIntoCart()">Thêm vào giỏ</button>
-                    <a href="javascript:void(0)" class="heart-icon" onclick="view(@ViewBag.product.id)"><span class="icon_heart_alt"></span></a>
+                    @*<a href="javascript:void(0)" class="heart-icon" onclick="view(@ViewBag.product.id)"><span class="icon_heart_alt"></span></a>*@
                     <p>
                         <b>Trạng thái : </b> <span>@ViewBag.product.status</span>
                         <br />
@@ -146,8 +161,9 @@
                 <div class="section-title related__product__title">
                     <h3>Bình luận</h3>
                     <h8 style="float:left"> @ViewBag.total bình luận</h8>
-
-                    <br /><br /><br />
+                    <br />
+                    <hr />
+                    <br /><br />
 
                     @if ("ADMIN".Equals(ViewBag.add))
                     {
@@ -208,8 +224,8 @@
                         {
                             <table cellpadding="2" cellspacing="2">
                                 <tr>
-                                    <td valign="top">Bình luận</td>
-                                    <td>
+                                    <td valign="middle"><b>Bình luận</b></td>
+                                    <td valign="baseline">
                                         <span class="text-warning">
                                             <i class="ratingStar fa fa-star-o" data-value="1"></i>
                                             <i class="ratingStar fa fa-star-o" data-value="2"></i>
@@ -220,7 +236,7 @@
                                         <input type="hidden" name="rating" id="ratingValue" />
                                     </td>
                                     <td>
-                                        @Html.TextAreaFor(model => model.content, new { cols = 100, rows = 4 })
+                                        @Html.TextAreaFor(model => model.content, new { cols = 100, @rows = "10" })
                                     </td>
                                 </tr>
 
