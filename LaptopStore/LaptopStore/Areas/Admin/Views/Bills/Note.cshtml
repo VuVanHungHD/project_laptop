@@ -1,0 +1,31 @@
+﻿@model LaptopStore.Models.Bill
+
+@{
+    ViewBag.Title = "Note";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="form-horizontal">
+    <h4>Lý do hủy</h4>
+    <hr />
+    @using (Html.BeginForm("Delete", "Bills", new { id = ViewBag.billId.id }))
+    {
+        <form class="form-group" method="POST">
+            <input type="text" name="note" placeholder="Nhập tên" />
+            <button class="btn btn-danger" type="submit">Gửi</button>
+        </form>
+    }
+    <div class="form-group p-2 d-flex flex-row">
+        <div class="mr-2">
+            <div>@Html.ActionLink("Hủy", "Delete", new { id = ViewBag.billId }, new { @class = "btn btn-warning m-1" })</div>
+        </div>
+        <div hidden>@Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-dark" })</div>
+    </div>
+    
+</div>
+
+
+
+

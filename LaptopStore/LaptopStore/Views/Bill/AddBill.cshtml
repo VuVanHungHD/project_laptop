@@ -20,7 +20,7 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Địa chỉ<span>*</span></p>
-                                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" , @Value = @ViewBag.user.address } })
+                                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.user.address } })
                                 @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
                             </div>
 
@@ -28,7 +28,8 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Số điện thoại<span>*</span></p>
-                                        <input type="tel" value="@ViewBag.user.phonenumber">
+                                        @Html.EditorFor(model => model.phoneNumber, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.user.phonenumber } })
+                                        @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -57,12 +58,7 @@
 
                                 </ul>
                                 <div class="checkout__order__total">Tổng tiền <span>@ViewBag.total</span></div>
-                                @*@using (Html.BeginForm("SaveBill", "Bill", FormMethod.Post))
-                                    {
-                                        <button type="submit" class="site-btn">Đặt hàng</button>
-                                    }*@
                                 <button type="submit" class="site-btn">Đặt hàng</button>
-                                @*<a href="@Url.Action("SaveBill", "Bill")" class="site-btn">Đặt hàng</a>*@
                             </div>
                         </div>
                     </div>

@@ -43,7 +43,7 @@ namespace LaptopStore.Controllers
             return View();
         }
 
-        public ActionResult SaveBill([Bind(Include = "address")] BillDetail billDetail)
+        public ActionResult SaveBill([Bind(Include = "address,phoneNumber")] BillDetail billDetail)
         {
             var bill = new Bill();
             bill.userId = (int)Session["USER"];
@@ -59,28 +59,18 @@ namespace LaptopStore.Controllers
             }
             bill.total = total;
             bill.dateCreate = DateTime.Now;
-            bill.status = "Đang giao";
+            bill.status = "Chờ xác nhận";
             db.SaveChanges();
 
             Session["CART"] = null;
 
             return Redirect("/Bill/Index");
         }
-        //public ActionResult Create([Bind(Include = "id,name,content,author")] BillDetail btll)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        blog.dateCreate = DateTime.Now;
-        //        db.Blogs.Add(blog);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
 
-        //    return View(blog);
-        //}
         public ActionResult Details(int id)
         {
             ViewBag.bill = db.bills.Find(id);
+            ViewBag.billDetail = db.billDetails.SingleOrDefault(b => b.billId == id);
             var billDetails = new Dictionary<Product, int>();
             decimal total = 0;
             var details = db.billDetails.Where(bdt => bdt.billId == id).ToList();
@@ -90,6 +80,7 @@ namespace LaptopStore.Controllers
                 var product = db.products.Find(productId);
                 billDetails.Add(product, dt.count);
                 total += product.promotionPrice * dt.count;
+
             }
             ViewBag.billDetails = billDetails;
             ViewBag.total = total;

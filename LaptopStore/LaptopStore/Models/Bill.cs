@@ -29,6 +29,8 @@ namespace LaptopStore.Models
         public DateTime dateCreate { get; set; }
 
         [DisplayName("Trạng thái")]
-        public string status { get; set; } //đang giao, đã giao, đã hủy
+        public string status { get; set; } //Chờ xác nhận , chờ lấy hàng, đang giao, đã giao, đã hủy
+        [DisplayName("Trạng thái")]
+        public string note { get; set; } //Ghi chú tại sao hủy
     }
 }

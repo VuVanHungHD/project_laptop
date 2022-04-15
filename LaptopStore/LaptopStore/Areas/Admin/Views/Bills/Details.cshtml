@@ -10,12 +10,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3>Chi tiết đơn hàng: @ViewBag.bill.id</h3>
-                <h5>Trạn thái đơn hàng: @ViewBag.bill.status</h5>
+                <h5>Trạng thái đơn hàng: @ViewBag.bill.status</h5>
+                <h5>Ngày đặt: @ViewBag.bill.dateCreate</h5>
+                <h5>Người đặt: @ViewBag.bill.user.username </h5>
+                <h5>Điện thoại : @ViewBag.billDetail.phoneNumber</h5>
+                <h5>Địa chỉ : @ViewBag.billDetail.address</h5>
                 <div class="shoping__cart__table">
                     <table>
                         <thead>
                             <tr>
-                                <th  class="w-25">Sản phẩm</th>
+                                <th class="w-25">Sản phẩm</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
                                 <th>Số lượng</th>

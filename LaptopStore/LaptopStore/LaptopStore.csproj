@@ -3757,6 +3757,8 @@
     <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bills\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bills\Note.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
@@ -3768,7 +3770,6 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Bill\Index.cshtml" />
     <Content Include="Views\Bill\AddBill.cshtml" />
-    <Content Include="Views\Bill\Details.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
@@ -3924,6 +3925,7 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Products\Search.cshtml" />
+    <Content Include="Views\Bill\Details.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

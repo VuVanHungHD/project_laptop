@@ -28,5 +28,9 @@ namespace LaptopStore.Models
         [StringLength(300)]
         [Required(ErrorMessage = "Địa chỉ không được để trống!")]
         public string address { get; set; }
+        [Required(ErrorMessage = "Số điện thoại không được trống!")]
+        [StringLength(15)]
+        [DisplayName("Số điện thoại")]
+        public string phoneNumber { get; set; }
     }
 }

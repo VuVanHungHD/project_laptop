@@ -1,5 +1,6 @@
 ﻿@model PagedList.IPagedList<LaptopStore.Models.Bill>
 @using PagedList.Mvc;
+
 @{
     ViewBag.Title = "Quản lý đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -42,8 +43,24 @@
 
                             <td class="d-flex flex-row">
                                 <div>@Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-info m-1" })</div>
-                                <div>@Html.ActionLink("Đã giao", "Done", new { id = item.id }, new { @class = "btn btn-danger m-1" })</div>
-                                <div>@Html.ActionLink("Hủy", "Delete", new { id = item.id }, new { @class = "btn btn-danger m-1" })</div>
+
+                                @if (item.status.Equals("Chờ xác nhận"))
+                                {
+                                    <div>@Html.ActionLink("Chờ lấy hàng", "Done", new { id = item.id, stat = item.status }, new { @class = "btn btn-danger m-1" })</div>
+                                }
+                                else if (item.status.Equals("Chờ lấy hàng"))
+                                {
+                                    <div>@Html.ActionLink("Đang giao", "Done", new { id = item.id, stat = item.status }, new { @class = "btn btn-danger m-1" })</div>
+                                }
+                                else if (item.status.Equals("Đang giao"))
+                                {
+                                    <div>@Html.ActionLink("Đã giao", "Done", new { id = item.id, stat = item.status }, new { @class = "btn btn-danger m-1" })</div>
+                                }
+                                @if (!item.status.Equals("Đã giao"))
+                                {
+                                    <div>@Html.ActionLink("Hủy", "Delete", new { id = item.id }, new { @class = "btn btn-warning m-1" })</div>
+                                }
+
                             </td>
                         </tr>
                     }

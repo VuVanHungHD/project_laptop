@@ -111,19 +111,26 @@ namespace LaptopStore.Controllers
             }
             var cmt = new User_Comment() { productId = product.id };
             var total = db.User_Comment.Where(c => c.productId == id).OrderByDescending(c => c.datePost).ToList().Count();
+
             ViewBag.total = total;
             int countComment;
+            int rateComment = 0;
+            float discount = 0;
             if (total == 0)
             {
                 countComment = 0;
+
             }
             else
             {
                 countComment = db.User_Comment.Where(c => c.productId == id).Sum(c => c.rating);
             }
 
-            int rateComment = (countComment / total);
-            float discount = (float)(countComment % total);
+            if (total != 0 && countComment != 0)
+            {
+                rateComment = (countComment / total);
+                discount = (float)(countComment % total);
+            }
 
             ViewBag.rateComment = rateComment;
             ViewBag.discount = discount;

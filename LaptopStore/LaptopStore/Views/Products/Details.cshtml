@@ -79,7 +79,7 @@
 
                         </div>
                     </div>
-                    <button type="submit" class="primary-btn" onclick="addItemIntoCart()">Thêm vào giỏ</button>
+                    <button type="submit" class="primary-btn" onclick="addCart(@ViewBag.product.id,1)">Thêm vào giỏ</button>
                     @*<a href="javascript:void(0)" class="heart-icon" onclick="view(@ViewBag.product.id)"><span class="icon_heart_alt"></span></a>*@
                     <p>
                         <b>Trạng thái : </b> <span>@ViewBag.product.status</span>
@@ -282,12 +282,6 @@
 
 <script>
 
-    function addItemIntoCart() {
-        var id = document.getElementById("idProduct").value;
-        var count = document.getElementById("countProduct").value;
-        console.log(id, count);
-        addCart(id, count);
-    };
     function deleteComment(id, name) {
         var deleteConfirm = confirm("Xác nhận xóa bình luận của: " + name + "?");
 

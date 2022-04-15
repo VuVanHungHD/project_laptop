@@ -31,6 +31,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         {
             ViewBag.bill = db.bills.Find(id);
             var billDetails = new Dictionary<Product, int>();
+            ViewBag.billDetail = db.billDetails.SingleOrDefault(b => b.billId == id);
             decimal total = 0;
             var details = db.billDetails.Where(bdt => bdt.billId == id).ToList();
             foreach (var dt in details)
@@ -44,18 +45,35 @@ namespace LaptopStore.Areas.Admin.Controllers
             ViewBag.total = total;
             return View();
         }
-        public ActionResult Done(int id)
+        public ActionResult Done(int id, string stat)
         {
             var bill = db.bills.Find(id);
-            bill.status = "Đã giao";
+            if (stat.Equals("Chờ xác nhận"))
+            {
+                bill.status = "Chờ lấy hàng";
+            }
+            else if (stat.Equals("Chờ lấy hàng"))
+            {
+                bill.status = "Đang giao";
+            }
+            else
+            {
+                bill.status = "Đã giao";
+            }
+
             db.SaveChanges();
             return Redirect("/Admin/Bills/Index");
         }
 
-
         public ActionResult Delete(int id)
         {
             var bill = db.bills.Find(id);
+            bill.note = Request.Form["note"];
+            ViewBag.billId = bill;
+            if (bill.note == null)
+            {
+                return View("Note");
+            }
             bill.status = "Đã hủy";
             db.SaveChanges();
             return Redirect("/Admin/Bills/Index");
