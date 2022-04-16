@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Ghi chú";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-horizontal">
+                    <h4>Lý do hủy</h4>
+                    <hr />
+                    @using (Html.BeginForm("Delete", "Bill", new { id = ViewBag.billId.id }))
+                    {
+                        <form class="form-group" method="POST">
+                            <textarea name="note" cols="120" rows="5" placeholder="Nhập vào lý do hủy"></textarea>
+                            <div class="form-group p-2 d-flex flex-row">
+                                <button class="btn btn-danger" type="submit">Gửi</button>
+                                <div>@Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-dark" })</div>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -9,13 +9,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3>Chi tiết đơn hàng: @ViewBag.bill.id</h3>
-                <h5>Ngày đặt: @ViewBag.bill.dateCreate</h5>
-                <h5>Trạng thái đơn hàng: @ViewBag.bill.status</h5>
-                <h5>Người đặt: @ViewBag.bill.user.username </h5>
-                <h5>Điện thoại : @ViewBag.billDetail.phoneNumber</h5>
-                <h5>Địa chỉ : @ViewBag.billDetail.address</h5>
+                <div class="col-lg-6">
+                    <h3>Chi tiết đơn hàng: @ViewBag.bill.id</h3>
+                    <h5>Ngày đặt: @ViewBag.bill.dateCreate</h5>
+                    <h5>Trạng thái đơn hàng: @ViewBag.bill.status</h5>
+                    <h5>Người đặt: @ViewBag.bill.user.username </h5>
+                    <h5>Điện thoại : @ViewBag.billDetail.phoneNumber</h5>
+                    <h5>Địa chỉ : @ViewBag.billDetail.address</h5>
+                    <h5>Lý do : @ViewBag.bill.note</h5>
+                </div>
+                <br />
                 <hr />
+
                 <div class="shoping__cart__table">
                     <table>
                         <thead>
@@ -50,10 +55,10 @@
                     </table>
                 </div>
             </div>
+
         </div>
         <div class="row">
             <div class="col-lg-6">
-                
             </div>
             <div class="col-lg-6">
                 <div class="shoping__checkout">
@@ -62,7 +67,7 @@
                         <li>Tổng tiền <span>@ViewBag.total (VNĐ)</span></li>
                     </ul>
                 </div>
-                
+
 
             </div>
         </div>

@@ -98,6 +98,12 @@ namespace LaptopStore.Controllers
         public ActionResult Delete(int id)
         {
             var bill = db.bills.Find(id);
+            bill.note = Request.Form["note"];
+            ViewBag.billId = bill;
+            if (bill.note == null)
+            {
+                return View();
+            }
             bill.status = "Đã hủy";
             db.SaveChanges();
             return Redirect("/Bill/Index");

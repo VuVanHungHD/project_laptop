@@ -72,7 +72,7 @@ namespace LaptopStore.Areas.Admin.Controllers
             ViewBag.billId = bill;
             if (bill.note == null)
             {
-                return View("Note");
+                return View();
             }
             bill.status = "Đã hủy";
             db.SaveChanges();
