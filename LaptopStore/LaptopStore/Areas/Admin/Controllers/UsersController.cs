@@ -46,30 +46,16 @@ namespace LaptopStore.Areas.Admin.Controllers
             return View(user);
         }
 
-        // GET: Admin/Users/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
 
         // POST: Admin/Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [HttpPost]
+
         public ActionResult DeleteConfirmed(int id)
         {
             User user = db.users.Find(id);
             db.users.Remove(user);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { status = "success" });
         }
 
         public ActionResult Logout()

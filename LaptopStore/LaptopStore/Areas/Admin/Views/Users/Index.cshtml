@@ -111,6 +111,7 @@
                             <button class="btn btn-danger m-1" onclick="resetPassword(@item.id)">Đặt lại mật khẩu</button>
                             <button class="btn btn-danger m-1" onclick="lockUser(@item.id)">Khóa</button>
                             <button class="btn btn-danger m-1" onclick="unlockUser(@item.id)">Mở khóa</button>
+                            <button class="btn btn-danger m-1" onclick="deleteUser(@item.id)">Xóa</button>
                         </td>
                     </tr>
                     }
@@ -158,6 +159,23 @@
             var formData = new FormData();
             formData.append("id", id);
             fetch("@Url.Action("Lock", "Users")", {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                window.location.replace("@Url.Action("Index", "Users")");
+
+            });
+
+        }
+    }
+
+
+    function deleteUser(id) {
+        var deleteConfirm = confirm("Bạn chắc chắn muốn xóa người dùng này!");
+        if (deleteConfirm) {
+            var formData = new FormData();
+            formData.append("id", id);
+            fetch("@Url.Action("DeleteConfirmed", "Users")", {
                 method: 'POST',
                 body: formData
             }).then(() => {
