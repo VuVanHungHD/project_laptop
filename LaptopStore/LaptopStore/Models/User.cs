@@ -21,10 +21,15 @@ namespace LaptopStore.Models
         [DisplayName("Mã người dùng")]
         public int id { get; set; }
 
-        [Required(ErrorMessage = "Tên người dùng không được trống!")]
+        [Required(ErrorMessage = "Tên tài khoản không được trống!")]
+        [StringLength(50)]
+        [DisplayName("Tên tài khoản dùng")]
+        public string username { get; set; }
+
+        [Required(ErrorMessage = "Tên Người dùng không được trống!")]
         [StringLength(50)]
         [DisplayName("Tên người dùng")]
-        public string username { get; set; }
+        public string customerName { get; set; }
 
         [Required(ErrorMessage = "Email người dùng không được trống!")]
         [StringLength(50)]
