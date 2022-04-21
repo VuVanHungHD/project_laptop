@@ -10,11 +10,11 @@ namespace LaptopStore.Models
     [Table("User")]
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            User_Comment = new HashSet<User_Comment>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public User()
+        //{
+        //    User_Comment = new HashSet<User_Comment>();
+        //}
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -60,7 +60,7 @@ namespace LaptopStore.Models
         [StringLength(30)]
         [DisplayName("Status")]
         public string status { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<User_Comment> User_Comment { get; set; }
     }
 }

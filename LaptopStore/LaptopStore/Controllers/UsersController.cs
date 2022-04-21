@@ -121,7 +121,6 @@ namespace LaptopStore.Controllers
                 }
                 else
                 {
-
                     ModelState.AddModelError("password", "Mật khẩu sai!");
                     return View();
                 }
@@ -134,15 +133,14 @@ namespace LaptopStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,username,email,phonenumber,address,password,userType,status")] User user, string oldPassword, string newPassword, string repeatNewPassword)
+        public ActionResult Edit([Bind(Include = "id,username,customerName,email,phonenumber,address,password,userType,status")] User user, string oldPassword, string newPassword, string repeatNewPassword)
         {
             var users = db.users.AsNoTracking().Where(u => u.email == user.email).ToList();
             if (users.Count() != 0 && users[0].id != user.id)
             {
                 ModelState.AddModelError("email", "Email này đã được đăng kí!");
-                return RedirectToAction("Details", user);
+                return View("Details", user);
             }
-
             var userInDB = db.users.AsNoTracking().Where(u => u.id == user.id).First();
             if (oldPassword == "" && newPassword == "" && repeatNewPassword == "")
             {
@@ -158,29 +156,29 @@ namespace LaptopStore.Controllers
                 {
                     if (newPassword == repeatNewPassword)
                     {
-                        //đổi pass
                         user.password = enscriptPassword(newPassword);
                     }
                     else
                     {
                         ModelState.AddModelError("password", "Mật khẩu mới hoặc nhập lại mật khẩu mới sai!");
+                        return View("Details", user);
                     }
                 }
                 else
                 {
                     ModelState.AddModelError("password", "Mật khẩu cũ sai!");
-                    return RedirectToAction("Details", user);
+                    return View("Details", user);
                 }
 
             }
-            user.status = "Đang hoạt động";
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                user.status = "Đang hoạt động";
+                user.userType = "USER";
                 db.SaveChanges();
-                return RedirectToAction("Details", user);
+                return View("Details", user);
             }
-            return RedirectToAction("Details", user);
+            return View("Details", user);
         }
 
         private string enscriptPassword(string password)
