@@ -61,6 +61,6 @@ namespace LaptopStore.Models
         [DisplayName("Status")]
         public string status { get; set; }
 
-        public virtual ICollection<User_Comment> User_Comment { get; set; }
+      //  public virtual ICollection<User_Comment> User_Comment { get; set; }
     }
 }

@@ -126,14 +126,12 @@ namespace LaptopStore.Controllers
                 }
             }
         }
-
-
         // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,username,customerName,email,phonenumber,address,password,userType,status")] User user, string oldPassword, string newPassword, string repeatNewPassword)
+        public ActionResult Edit([Bind(Include = "id,username,customerName,email,phonenumber,address,password,status,userType")] User user, string oldPassword, string newPassword, string repeatNewPassword)
         {
             var users = db.users.AsNoTracking().Where(u => u.email == user.email).ToList();
             if (users.Count() != 0 && users[0].id != user.id)
@@ -160,7 +158,7 @@ namespace LaptopStore.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("password", "Mật khẩu mới hoặc nhập lại mật khẩu mới sai!");
+                        ModelState.AddModelError("password", "Mật khẩu mới nhập lại phải giống nhau!");
                         return View("Details", user);
                     }
                 }
@@ -171,14 +169,15 @@ namespace LaptopStore.Controllers
                 }
 
             }
+            user.userType = "USER";
+            user.status = "Đang hoạt động";
             if (ModelState.IsValid)
             {
-                user.status = "Đang hoạt động";
-                user.userType = "USER";
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return View("Details", user);
+                return RedirectToAction("Details", user);
             }
-            return View("Details", user);
+            return RedirectToAction("Details", user);
         }
 
         private string enscriptPassword(string password)
