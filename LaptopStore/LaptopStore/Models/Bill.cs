@@ -30,7 +30,7 @@ namespace LaptopStore.Models
 
         [DisplayName("Trạng thái")]
         public string status { get; set; } //Chờ xác nhận , chờ lấy hàng, đang giao, đã giao, đã hủy
-        [DisplayName("Trạng thái")]
+        [DisplayName("Ghi chú")]
         public string note { get; set; } //Ghi chú tại sao hủy
     }
 }

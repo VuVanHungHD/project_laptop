@@ -22,7 +22,7 @@
                             @Html.AntiForgeryToken()
                             <form class="user">
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                @Html.EditorFor(model => model.id)
+                                @Html.HiddenFor(model => model.id)
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label" })
                                     @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên người dùng" } })

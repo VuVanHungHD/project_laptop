@@ -16,6 +16,7 @@
                     <tr>
                         <th>Mã đơn hàng</th>
                         <th>Tổng tiền</th>
+                        <th>Ngày đặt</th>
                         <th>Trạng thái</th>
                         <th>Hành động</th>
                     </tr>
@@ -23,29 +24,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.total) VNĐ
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.status)
-                            </td>
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.total) VNĐ
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.dateCreate)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
 
-                            <td class="d-flex flex-row">
-                                <div>@Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-info m-1" })</div>
-                                @if (item.status == "Đang giao")
-                                {
-                                    <div>@Html.ActionLink("Đã giao", "Done", new { id = item.id }, new { @class = "btn btn-warning m-1" })</div>
-                                }
-                                else if (item.status != "Đã hủy")
-                                {
-                                    <div>@Html.ActionLink("Hủy", "Delete", new { id = item.id }, new { @class = "btn btn-danger m-1" })</div>
-                                }
-                            </td>
-                        </tr>
+                        <td class="d-flex flex-row">
+                            <div>@Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-info m-1" })</div>
+                            @if (item.status == "Đang giao")
+                            {
+                                <div>@Html.ActionLink("Đã giao", "Done", new { id = item.id }, new { @class = "btn btn-warning m-1" })</div>
+                            }
+                            else if (item.status != "Đã hủy")
+                            {
+                                <div>@Html.ActionLink("Hủy", "Delete", new { id = item.id }, new { @class = "btn btn-danger m-1" })</div>
+                            }
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

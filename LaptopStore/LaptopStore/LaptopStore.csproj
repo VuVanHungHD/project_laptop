@@ -141,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\BillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
@@ -3575,7 +3576,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\User_Comment\" />
     <Folder Include="images\pictures\" />
   </ItemGroup>
   <ItemGroup>
@@ -3757,6 +3757,14 @@
     <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Bills\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User_Comment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User_Comment\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User_Comment\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User_Comment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User_Comment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />

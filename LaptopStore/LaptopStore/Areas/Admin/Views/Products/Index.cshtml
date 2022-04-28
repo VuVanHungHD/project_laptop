@@ -96,6 +96,7 @@
                         <th>Hệ điều hành</th>
                         <th>Số lượt xem</th>
                         <th>Trạng thái</th>
+                        <th>Ngày tạo</th>
                         <th>Hành động</th>
                     </tr>
                 </thead>
@@ -168,6 +169,9 @@
                         </td>
                         <td class="text-center">
                             @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.createDate)
                         </td>
                         <td>
                             <div>@Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-info m-1" })</div>

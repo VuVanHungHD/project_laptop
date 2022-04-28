@@ -49,7 +49,6 @@ namespace LaptopStore.Areas.Admin.Controllers
 
         // POST: Admin/Users/Delete/5
         [HttpPost]
-
         public ActionResult DeleteConfirmed(int id)
         {
             User user = db.users.Find(id);
