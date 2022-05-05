@@ -9,13 +9,13 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Báo cáo</h1>
         @*<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Xuất file
-        </a>*@
+                <i class="fas fa-download fa-sm text-white-50"></i> Xuất file
+            </a>*@
     </div>
 
     <!-- Content Row -->
     <div class="row">
-        
+
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -24,7 +24,12 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Sản phẩm được xem nhiều nhất
                             </div>
-                            <a href="@Url.Action("Details", "Products", new {id = ViewBag.productViewMost.id})" class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.productViewMost.name</a>
+                            @foreach (var item in ViewBag.top10ProductViewMost)
+                            {
+                                <a href="@Url.Action("Details", "Products", new {id = item.id})" class="h5 mb-0 font-weight-bold text-gray-800">@item.name</a>
+
+                                <hr />
+                            }
                         </div>
                     </div>
                 </div>
@@ -72,7 +77,7 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Biểu đồ doanh thu theo tháng năm @DateTime.Now.Year</h6>
-                    
+
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">

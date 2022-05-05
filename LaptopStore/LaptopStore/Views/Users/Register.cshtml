@@ -47,15 +47,19 @@
                                 <form class="user">
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên người dùng" } })
+                                        @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tài khoản" } })
                                         @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @type="email" } })
+                                        @Html.EditorFor(model => model.customerName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Họ và tên" } })
+                                        @Html.ValidationMessageFor(model => model.customerName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @type = "email" } })
                                         @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.EditorFor(model => model.phonenumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số điện thoại", @type="tel" } })
+                                        @Html.EditorFor(model => model.phonenumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số điện thoại", @type = "tel" } })
                                         @Html.ValidationMessageFor(model => model.phonenumber, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
@@ -64,21 +68,21 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật khẩu", @type ="password" } })
+                                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật khẩu", @type = "password" } })
                                             @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="password" name="repeatPassword"class="form-control" placeholder="Nhập lại mật khẩu"/>
+                                            <input type="password" name="repeatPassword" class="form-control" placeholder="Nhập lại mật khẩu" />
                                             @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <input type="hidden" name="userType" value="USER" />
-                                    <input type="submit" value="Đăng kí" class="btn btn-primary btn-user btn-block"/>
+                                    <input type="submit" value="Đăng kí" class="btn btn-primary btn-user btn-block" />
                                 </form>
                                 <hr>
                                 @*<div class="text-center">
-                                    <a class="small" href="forgot-password.html">Quên mật khẩu?</a>
-                                </div>*@
+                                        <a class="small" href="forgot-password.html">Quên mật khẩu?</a>
+                                    </div>*@
                                 <div class="text-center">
                                     <a class="small" href="@Url.Action("Login", "Users")">Bạn có tài khoản? Đăng nhập ngay!</a>
                                 </div>

@@ -14,6 +14,7 @@ namespace LaptopStore.Areas.Admin.Controllers
         public ActionResult Index()
         {
             ViewBag.productViewMost = db.products.OrderByDescending(p => p.viewCount).First();
+            ViewBag.top10ProductViewMost = db.products.OrderByDescending(p => p.viewCount).Take(10);
             try
             {
                 ViewBag.moneyInMoth = db.bills.Where(b => b.dateCreate.Month == DateTime.Now.Month && b.status == "Đã giao").Sum(b => b.total);

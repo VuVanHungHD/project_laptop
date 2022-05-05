@@ -49,11 +49,10 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-info m-1" />
-            </div>
-            <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-primary" })
+
+            <div class="form-group p-2 d-flex flex-row">
+                <div><input type="submit" value="Lưu" class="btn btn-warning mr-1" /></div>
+                <div>@Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-primary" })</div>
             </div>
         </div>
     </div>

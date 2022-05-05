@@ -103,8 +103,9 @@ namespace LaptopStore.Controllers
             {
                 return HttpNotFound();
             }
+            Product products = db.products.Include(p => p.category).Where(p => p.id == id).FirstOrDefault();
+            ViewBag.relatedProducts = db.products.Where(p => p.status == "Còn hàng" && p.category.id == products.category.id).Take(8).ToList();
             var users = db.users.Find(Session["USER"]);
-
             if (users != null)
             {
                 ViewBag.add = users.userType.ToString();

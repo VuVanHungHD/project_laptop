@@ -46,7 +46,7 @@ namespace LaptopStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register([Bind(Include = "id,username,email,phonenumber,address,password,userType,status")] User user, string repeatPassword)
+        public ActionResult Register([Bind(Include = "id,username,customerName,email,phonenumber,address,password,userType,status")] User user, string repeatPassword)
         {
             if (db.users.Where(u => u.email == user.email).Count() != 0)
             {

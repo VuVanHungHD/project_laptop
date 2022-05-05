@@ -10,7 +10,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Quản lý danh mục tranh</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Quản lý người dùng</h6>
     </div>
     <div class="card-body">
         <div class="row mb-2">
@@ -73,6 +73,7 @@
                 <thead>
                     <tr>
                         <th>Mã người dùng</th>
+                        <th>Tài khoản</th>
                         <th>Tên người dùng</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>
@@ -91,6 +92,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem=>item.customerName)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.email)
