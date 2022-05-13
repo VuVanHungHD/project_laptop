@@ -75,7 +75,7 @@
             <div class="col-lg-6">
                 <a href="@Url.Action("Index", "Bill")" class="site-btn">Quay về</a>
             </div>
-            @if (ViewBag.bill.status != "Đã hủy")
+            @if (ViewBag.bill.status != "Đã hủy"&& ViewBag.bill.status != "Đã giao")
             {
                 <div class="col-lg-6">@Html.ActionLink("Hủy", "Delete", new { id = ViewBag.bill.id }, new { @class = "btn btn-danger m-1" })</div>
 

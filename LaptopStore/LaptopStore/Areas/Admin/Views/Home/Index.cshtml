@@ -26,8 +26,7 @@
                             </div>
                             @foreach (var item in ViewBag.top10ProductViewMost)
                             {
-                                <a href="@Url.Action("Details", "Products", new {id = item.id})" class="h5 mb-0 font-weight-bold text-gray-800">@item.name</a>
-
+                                <a href="@Url.Action("Details", "Products", new {id = item.id})" class="h5 mb-0 font-weight-bold text-gray-800" style="font-size:10px;">@item.name</a>
                                 <hr />
                             }
                         </div>

@@ -30,7 +30,10 @@ namespace LaptopStore.Models
         [DisplayName("Tác giả bài viết")]
         public string author { get; set; }
 
+        public int? userId { get; set; }
+
         [DisplayName("Ngày viết")]
         public DateTime dateCreate { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -78,6 +78,7 @@
                         <th>Tiêu đề</th>
                         <th>Nội dung</th>
                         <th>Tác giả</th>
+                        <th>Người đăng</th>
                         <th>Ngày viết</th>
                         <th>Hành động</th>
                     </tr>
@@ -85,29 +86,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.name)
-                            </td>
-                            <td class="text-left">
-                                @Html.DisplayFor(modelItem => item.content)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.author)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.dateCreate)
-                            </td>
-                            
-                            <td>
-                                <div>@Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-info m-1" })</div>
-                                <div>@Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.id }, new { @class = "btn btn-warning m-1" })</div>
-                                <div><button class="btn btn-danger m-1" onclick="deleteBlog(@item.id, '@item.name')">Xóa</button></div>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.content)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.author)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.User.username)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.dateCreate)
+                        </td>
+
+                        <td>
+                            <div>@Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-info m-1" })</div>
+                            <div>@Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.id }, new { @class = "btn btn-warning m-1" })</div>
+                            <div><button class="btn btn-danger m-1" onclick="deleteBlog(@item.id, '@item.name')">Xóa</button></div>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

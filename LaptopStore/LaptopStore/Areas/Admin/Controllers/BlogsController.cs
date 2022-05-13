@@ -59,10 +59,11 @@ namespace LaptopStore.Areas.Admin.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,content,author")] Blog blog)
+        public ActionResult Create([Bind(Include = "id,name,content,author,userId")] Blog blog)
         {
             if (ModelState.IsValid)
             {
+                blog.userId = (int)Session["USER"];
                 blog.dateCreate = DateTime.Now;
                 db.Blogs.Add(blog);
                 db.SaveChanges();
@@ -93,10 +94,11 @@ namespace LaptopStore.Areas.Admin.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,content,author")] Blog blog)
+        public ActionResult Edit([Bind(Include = "id,name,content,author,userId")] Blog blog)
         {
             if (ModelState.IsValid)
             {
+                blog.userId= (int)Session["USER"];
                 blog.dateCreate = DateTime.Now;
                 db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();

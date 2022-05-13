@@ -139,8 +139,8 @@ ol {
 }
 
 .spad {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .text-white h1,
@@ -1888,8 +1888,8 @@ ol {
 -----------------------*/
 
 .shoping-cart {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .shoping__cart__table {
@@ -2626,7 +2626,7 @@ ol {
 
 .footer {
     background: #F3F6FA;
-    padding-top: 70px;
+    padding-top: 20px;
     padding-bottom: 0;
 }
 

@@ -44,7 +44,7 @@
                             {
                                 <div>@Html.ActionLink("Đã giao", "Done", new { id = item.id }, new { @class = "btn btn-warning m-1" })</div>
                             }
-                            else if (item.status != "Đã hủy")
+                            @if (!item.status.Equals("Đã giao")&& !item.status.Equals("Đã hủy"))
                             {
                                 <div>@Html.ActionLink("Hủy", "Delete", new { id = item.id }, new { @class = "btn btn-danger m-1" })</div>
                             }
